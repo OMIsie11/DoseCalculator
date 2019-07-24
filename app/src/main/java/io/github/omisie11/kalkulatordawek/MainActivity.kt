@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,19 +16,32 @@ class MainActivity : AppCompatActivity() {
 
         radio_ibuprofen.isChecked = true
 
+        edit_text_substancja.addTextChangedListener(DoseTextWatcher(edit_text_substancja))
+        edit_text_syrop.addTextChangedListener(DoseTextWatcher(edit_text_syrop))
+        edit_text_masa.addTextChangedListener(MassTextWatcher(edit_text_masa))
+
         button_licz.setOnClickListener {
             val lek = if (findViewById<RadioButton>(radio_group_lek.checkedRadioButtonId) == radio_ibuprofen)
                 Ibuprofen() else Paracetamol()
 
-            text_wynik.text = wyliczDawke(lek, edit_text_substancja.text.toString().toDouble(),
-                edit_text_syrop.text.toString().toDouble(), edit_text_masa.text.toString().toDouble())
+            if (edit_text_substancja.validateNumericInput() && edit_text_syrop.validateNumericInput()
+                && edit_text_syrop.validateNumericInput()
+            ) {
+                text_wynik.text = wyliczDawke(
+                    lek,
+                    edit_text_substancja.text.toString().toDouble(),
+                    edit_text_syrop.text.toString().toDouble(),
+                    edit_text_masa.text.toString().toDouble()
+                )
+            } else Toast.makeText(this, "Niepoprawne dane", Toast.LENGTH_LONG).show()
         }
     }
 
     fun wyliczDawke(lek: Lek, stezenieSubstancji: Double, iloscSyropu: Double, masaCiala: Double): String {
         if (stezenieSubstancji == 0.0 || iloscSyropu == 0.0 || masaCiala == 0.0) return "Błędne wartości"
 
-        var informacja: String = ""
+        var informacja: String =
+            "Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady lekarskiej."
 
         val stezenie = stezenieSubstancji / iloscSyropu
 

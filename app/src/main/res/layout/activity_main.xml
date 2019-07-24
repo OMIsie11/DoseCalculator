@@ -14,6 +14,7 @@
             android:focusableInTouchMode="true">
 
         <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wybierz substancję aktywną:"
@@ -22,8 +23,7 @@
                 app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:textAppearance="@android:style/TextAppearance.Material.Headline"
-                android:id="@+id/textView"/>
+                android:textAppearance="@android:style/TextAppearance.Material.Headline"/>
 
         <RadioGroup
                 android:id="@+id/radio_group_lek"
