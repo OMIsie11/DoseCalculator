@@ -1,7 +1,6 @@
 package io.github.omisie11.kalkulatordawek
 
 import android.os.Bundle
-import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -41,25 +40,6 @@ class MainActivity : AppCompatActivity() {
                     edit_text_syrop.text.toString().toDouble(), edit_text_masa.text.toString().toDouble()
                 )
             } else Toast.makeText(this, "Niepoprawne dane", Toast.LENGTH_LONG).show()
-        }
-    }
-
-    fun onRadioButtonClicked(view: View) {
-        if (view is RadioButton) {
-            // Is the button now checked?
-            val checked = view.isChecked
-
-            // Check which radio button was clicked
-            when (view.getId()) {
-                R.id.radio_ibuprofen ->
-                    if (checked) {
-                        Toast.makeText(this, "Ibuprofen", Toast.LENGTH_SHORT).show()
-                    }
-                R.id.radio_paracetamol ->
-                    if (checked) {
-                        Toast.makeText(this, "Paracetamol", Toast.LENGTH_SHORT).show()
-                    }
-            }
         }
     }
 }

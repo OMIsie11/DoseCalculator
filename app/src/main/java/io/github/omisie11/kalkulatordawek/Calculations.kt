@@ -1,5 +1,8 @@
 package io.github.omisie11.kalkulatordawek
 
+import java.math.BigDecimal
+import java.math.RoundingMode
+
 fun calculateDose(lek: Lek, stezenieSubstancji: Double, iloscSyropu: Double, masaCiala: Double): String {
     if (stezenieSubstancji == 0.0 || iloscSyropu == 0.0 || masaCiala == 0.0) return "Błędne wartości"
 
@@ -30,31 +33,31 @@ fun calculateDose(lek: Lek, stezenieSubstancji: Double, iloscSyropu: Double, mas
 
     informacja += uwaga
 
-    //lekMinMg = Math.round(lekMinMg * 100) / 100
-    //lekDailyMinMg = Math.round(lek_daily_min_ml * 100) / 100
-    //lekMaxMg = Math.round(lek_max_ml * 100) / 100
-    //lekDailyMaxMg = Math.round(lek_daily_max_ml * 100) / 100
+    val lekMinMgRounded = BigDecimal(lekMinMg).setScale(2, RoundingMode.HALF_EVEN)
+    val lekDailyMinMgRounded = BigDecimal(lekDailyMinMg).setScale(2, RoundingMode.HALF_EVEN)
+    val lekMaxMgRounded = BigDecimal(lekMaxMg).setScale(2, RoundingMode.HALF_EVEN)
+    val lekDailyMaxMgRounded = BigDecimal(lekDailyMaxMg).setScale(2, RoundingMode.HALF_EVEN)
 
-    var lekMinMl: Double = lekMinMg / stezenie
-    var lekDailyMinMl: Double = lekDailyMinMg / stezenie
-    var lekMaxMl: Double = lekMaxMg / stezenie
-    var lekDailyMaxMl: Double = lekDailyMaxMg / stezenie
+    val lekMinMl: Double = lekMinMg / stezenie
+    val lekDailyMinMl: Double = lekDailyMinMg / stezenie
+    val lekMaxMl: Double = lekMaxMg / stezenie
+    val lekDailyMaxMl: Double = lekDailyMaxMg / stezenie
 
-    //lek_min_ml = Math.round(lek_min_ml * 100) / 100
-    //lek_daily_min_ml = Math.round(lek_daily_min_ml * 100) / 100
-    //lek_max_ml = Math.round(lek_max_ml * 100) / 100
-    //lek_daily_max_ml = Math.round(lek_daily_max_ml * 100) / 100
+    val lekMinMlRounded = BigDecimal(lekMinMl).setScale(2, RoundingMode.HALF_EVEN)
+    val lekDailyMinMlRounded = BigDecimal(lekDailyMinMl).setScale(2, RoundingMode.HALF_EVEN)
+    val lekMaxMlRounded = BigDecimal(lekMaxMl).setScale(2, RoundingMode.HALF_EVEN)
+    val lekDailyMaxMlRounded = BigDecimal(lekDailyMaxMl).setScale(2, RoundingMode.HALF_EVEN)
 
-    var tekst = if (lekDailyMinMl != lekDailyMaxMl) {
-        "Jednorazowa dawka: $lekMinMl-$lekMaxMl ml (odpowiednik $lekMinMg-$lekMaxMg mg " +
+    val tekst = if (lekDailyMinMl != lekDailyMaxMl) {
+        "Jednorazowa dawka: $lekMinMlRounded-$lekMaxMlRounded ml (odpowiednik $lekMinMgRounded-$lekMaxMgRounded mg " +
                 "${lek.name}u) " +
                 "\nMożna podać ${lek.count} takie dawki w ciągu doby. " +
-                "\nDobowa dawka: $lekDailyMinMl-$lekDailyMaxMl ml (odpowiednik $lekDailyMinMg-$lekDailyMaxMg " +
-                "mg ${lek.name}u)"
+                "\nDobowa dawka: $lekDailyMinMlRounded-$lekDailyMaxMlRounded ml (odpowiednik " +
+                "$lekDailyMinMgRounded-$lekDailyMaxMgRounded mg ${lek.name}u)"
     } else {
-        "Jednorazowa dawka: $lekMinMl ml (odpowiednik $lekMinMg mg ${lek.name}u) " +
+        "Jednorazowa dawka: $lekMinMlRounded ml (odpowiednik $lekMinMgRounded mg ${lek.name}u) " +
                 "\nMożna podać ${lek.count} takie dawki w ciągu doby. " +
-                "\nDobowa dawka: $lekDailyMinMl ml (odpowiednik $lekDailyMinMg mg" +
+                "\nDobowa dawka: $lekDailyMinMlRounded ml (odpowiednik $lekDailyMinMgRounded mg" +
                 " ${lek.name}u)"
     }
 
