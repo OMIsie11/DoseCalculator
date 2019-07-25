@@ -35,4 +35,5 @@ dependencies {
     testImplementation "junit:junit:$rootProject.junit_version"
     androidTestImplementation "androidx.test:runner:$rootProject.test_runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espresso_version"
+    testImplementation 'com.google.truth:truth:0.42'
 }

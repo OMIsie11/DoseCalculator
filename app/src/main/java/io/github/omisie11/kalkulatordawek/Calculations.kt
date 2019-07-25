@@ -24,14 +24,12 @@ fun calculateDose(lek: Lek, stezenieSubstancji: Double, iloscSyropu: Double, mas
         lekMinMg = (lek.max / lek.count).toDouble()
         lekMaxMg = (lek.max / lek.count).toDouble()
 
-        uwaga = "Pamiętaj, że maksymalna dopuszczalna dawka dobowa ${lek.name}u dla osoby dorosłej " +
+        uwaga = "\nPamiętaj, że maksymalna dopuszczalna dawka dobowa ${lek.name}u dla osoby dorosłej " +
                 "wynosi $lekDailyMaxMg mg."
 
-        if (lek is Ibuprofen) uwaga += "\n Większe dawki leku można przyjmować jedynie pod nadzorem i na " +
+        if (lek is Ibuprofen) uwaga += "\nWiększe dawki leku można przyjmować jedynie pod nadzorem i na " +
                 "zlecenie lekarza."
     }
-
-    informacja += uwaga
 
     val lekMinMgRounded = BigDecimal(lekMinMg).setScale(2, RoundingMode.HALF_EVEN)
     val lekDailyMinMgRounded = BigDecimal(lekDailyMinMg).setScale(2, RoundingMode.HALF_EVEN)
@@ -49,19 +47,20 @@ fun calculateDose(lek: Lek, stezenieSubstancji: Double, iloscSyropu: Double, mas
     val lekDailyMaxMlRounded = BigDecimal(lekDailyMaxMl).setScale(2, RoundingMode.HALF_EVEN)
 
     val tekst = if (lekDailyMinMl != lekDailyMaxMl) {
-        "Jednorazowa dawka: $lekMinMlRounded-$lekMaxMlRounded ml (odpowiednik $lekMinMgRounded-$lekMaxMgRounded mg " +
-                "${lek.name}u) " +
-                "\nMożna podać ${lek.count} takie dawki w ciągu doby. " +
+        "\nJednorazowa dawka: $lekMinMlRounded-$lekMaxMlRounded ml (odpowiednik $lekMinMgRounded-$lekMaxMgRounded " +
+                "mg ${lek.name}u)" +
+                "\nMożna podać ${lek.count} takie dawki w ciągu doby." +
                 "\nDobowa dawka: $lekDailyMinMlRounded-$lekDailyMaxMlRounded ml (odpowiednik " +
                 "$lekDailyMinMgRounded-$lekDailyMaxMgRounded mg ${lek.name}u)"
     } else {
-        "Jednorazowa dawka: $lekMinMlRounded ml (odpowiednik $lekMinMgRounded mg ${lek.name}u) " +
-                "\nMożna podać ${lek.count} takie dawki w ciągu doby. " +
+        "\nJednorazowa dawka: $lekMinMlRounded ml (odpowiednik $lekMinMgRounded mg ${lek.name}u)" +
+                "\nMożna podać ${lek.count} takie dawki w ciągu doby." +
                 "\nDobowa dawka: $lekDailyMinMlRounded ml (odpowiednik $lekDailyMinMgRounded mg" +
                 " ${lek.name}u)"
     }
 
     informacja += tekst
+    informacja += uwaga
 
     return informacja
 }
