@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
         radio_ibuprofen.isChecked = true
 
@@ -41,5 +43,10 @@ class MainActivity : AppCompatActivity() {
                 )
             } else Toast.makeText(this, "Niepoprawne dane", Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun translateValueToDayNightMode(value: Boolean): Int = when (value) {
+        true -> AppCompatDelegate.MODE_NIGHT_YES
+        false -> AppCompatDelegate.MODE_NIGHT_NO
     }
 }

@@ -62,7 +62,7 @@
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout_substancja"
                 android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:hint="ilość substancji w mg"
                 app:layout_constraintTop_toBottomOf="@+id/textView2"
                 android:layout_marginTop="8dp"
@@ -75,7 +75,8 @@
                     android:id="@+id/edit_text_substancja"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"/>
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,7 +96,8 @@
                     android:id="@+id/edit_text_syrop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"/>
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -132,7 +134,8 @@
                     android:id="@+id/edit_text_masa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"/>
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
