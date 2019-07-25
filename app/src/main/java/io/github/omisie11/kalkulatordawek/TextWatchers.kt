@@ -12,10 +12,12 @@ class DoseTextWatcher(private val editText: EditText) : TextWatcher {
     override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
 
     override fun afterTextChanged(s: Editable) {
-        val input = s.toString()
-        when {
-            input.isBlank() -> editText.error = "To pole nie może być puste"
-            input.toDouble() <= 0.0 -> editText.error = "Nieprawidłowa wartość"
+        if (s.toString().isNotEmpty()) {
+            val input = s.toString()
+            when {
+                //input.isBlank() -> editText.error = "To pole nie może być puste"
+                input.toDouble() <= 0.0 -> editText.error = "Nieprawidłowa wartość"
+            }
         }
     }
 }
@@ -27,11 +29,13 @@ class MassTextWatcher(private val editText: EditText) : TextWatcher {
     override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
 
     override fun afterTextChanged(s: Editable) {
-        val input = s.toString()
-        when {
-            input.isBlank() -> editText.error = "To pole nie może być puste"
-            input.toDouble() <= 0.0 -> editText.error = "Nieprawidłowa wartość"
-            input.toDouble() > 250 -> editText.error = "Nieprawidłowa wartość"
+        if (s.toString().isNotEmpty()) {
+            val input = s.toString()
+            when {
+                //input.isBlank() -> editText.error = "To pole nie może być puste"
+                input.toDouble() <= 0.0 -> editText.error = "Nieprawidłowa wartość"
+                input.toDouble() > 250 -> editText.error = "Nieprawidłowa wartość"
+            }
         }
     }
 }
