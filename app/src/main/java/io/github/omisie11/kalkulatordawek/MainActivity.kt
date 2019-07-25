@@ -2,12 +2,12 @@ package io.github.omisie11.kalkulatordawek
 
 import android.os.Bundle
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
         radio_ibuprofen.isChecked = true
@@ -39,9 +40,9 @@ class MainActivity : AppCompatActivity() {
                 edit_text_substancja.validateNumericInput() && edit_text_syrop.validateNumericInput()
                         && edit_text_syrop.validateNumericInput() ->
                     viewModel.performCalculations(
-                    lek, edit_text_substancja.text.toString().toDouble(),
-                    edit_text_syrop.text.toString().toDouble(), edit_text_masa.text.toString().toDouble()
-                )
+                        lek, edit_text_substancja.text.toString().toDouble(),
+                        edit_text_syrop.text.toString().toDouble(), edit_text_masa.text.toString().toDouble()
+                    )
             }
 
 /*
