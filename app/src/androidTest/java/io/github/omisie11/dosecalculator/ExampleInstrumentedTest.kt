@@ -1,4 +1,4 @@
-package io.github.omisie11.kalkulatordawek
+package io.github.omisie11.dosecalculator
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

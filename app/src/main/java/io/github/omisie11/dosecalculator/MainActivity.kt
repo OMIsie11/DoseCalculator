@@ -1,4 +1,4 @@
-package io.github.omisie11.kalkulatordawek
+package io.github.omisie11.dosecalculator
 
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -113,6 +113,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-       const val PREFS_KEY_DARK_MODE = "prefs_key_dark_mode"
+        const val PREFS_KEY_DARK_MODE = "prefs_key_dark_mode"
     }
 }

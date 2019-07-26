@@ -1,7 +1,7 @@
-package io.github.omisie11.kalkulatordawek
+package io.github.omisie11.dosecalculator
 
-open class Lek {
-    open val name = "Lek"
+open class Medicine {
+    open val name = "Medicine"
     open val singleMin: Double = 0.0
     open val singleMax: Double = 0.0
     open val dailyMin: Double = 0.0
@@ -10,7 +10,7 @@ open class Lek {
     open val max: Int = 0
 }
 
-class Ibuprofen : Lek() {
+class Ibuprofen : Medicine() {
     override val name = "Ibuprofen"
     override val singleMin: Double = 20.0 / 3
     override val singleMax: Double = 30.0 / 3
@@ -20,7 +20,7 @@ class Ibuprofen : Lek() {
     override val max: Int = 1200
 }
 
-class Paracetamol : Lek() {
+class Paracetamol : Medicine() {
     override val name = "Paracetamol"
     override val singleMin: Double = 15.0
     override val singleMax: Double = 15.0
