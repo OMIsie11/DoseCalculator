@@ -12,7 +12,14 @@
     <string name="calculate">Calculate</string>
     <string name="this_field_cannot_be_blank">This field cannot be blank</string>
     <string name="incorrect_input">Incorrect input</string>
-    <string name="result_warning"><b>Note: The following calculations are for information purposes only and do not
-        constitute medical advice.</b>
+    <string name="result_warning">
+        <b>Note: The following calculations are for information purposes only and do not
+            constitute medical advice.
+        </b>
     </string>
+    <string name="substance_concentration_help">Read the concentration of the active substance from the drug packaging.
+        \nThen fill in the fields below for information on how many milligrams of the active substance is in the given
+        number of milliliters of syrup.\nFor example: 40 mg of substance per 1 ml of syrup.
+    </string>
+    <string name="get_more_info_about_substance_concetration">Get more info about substance concentration</string>
 </resources>

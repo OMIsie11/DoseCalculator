@@ -6,10 +6,12 @@ import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -29,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         )
 
         radio_ibuprofen.isChecked = true
+
+        // Bottom sheet displayed after click on question mark image
+        val infoHelpBottomSheetDialog = BottomSheetDialog(this)
+        val sheetView = layoutInflater.inflate(R.layout.bottom_sheet_dialog_info, null)
+        infoHelpBottomSheetDialog.setContentView(sheetView)
 
         edit_text_substance.addTextChangedListener(DoseTextWatcher(edit_text_substance))
         edit_text_medicine.addTextChangedListener(DoseTextWatcher(edit_text_medicine))
@@ -67,6 +74,10 @@ class MainActivity : AppCompatActivity() {
                         getString(R.string.result_warning)
                     )
             }
+        }
+
+        image_substance_help.setOnClickListener {
+            infoHelpBottomSheetDialog.show()
         }
     }
 
