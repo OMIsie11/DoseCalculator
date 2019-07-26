@@ -8,16 +8,13 @@
     <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBar_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar">
+            android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="?attr/actionBarSize"
-                app:titleTextColor="?attr/colorOnSurface"
-                android:background="?attr/colorSurface"
+                android:background="@color/color_surface"
                 app:popupTheme="@style/ThemeOverlay.MaterialComponents"/>
 
     </com.google.android.material.appbar.AppBarLayout>

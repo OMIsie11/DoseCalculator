@@ -6,7 +6,6 @@ import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.RadioButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
@@ -24,11 +23,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        AppCompatDelegate.setDefaultNightMode(
-            translateValueToDayNightMode(
-                sharedPrefs.getBoolean(PREFS_KEY_DARK_MODE, false)
-            )
-        )
+        //AppCompatDelegate.setDefaultNightMode(
+        //    translateValueToDayNightMode(
+        //        sharedPrefs.getBoolean(PREFS_KEY_THEME, false)
+        //    )
+        //)
 
         radio_ibuprofen.isChecked = true
 
@@ -113,12 +112,7 @@ class MainActivity : AppCompatActivity() {
         else -> super.onOptionsItemSelected(item)
     }
 
-    private fun translateValueToDayNightMode(value: Boolean): Int = when (value) {
-        true -> AppCompatDelegate.MODE_NIGHT_YES
-        false -> AppCompatDelegate.MODE_NIGHT_NO
-    }
-
     companion object {
-        const val PREFS_KEY_DARK_MODE = "prefs_key_dark_mode"
+       const val PREFS_KEY_DARK_MODE = "prefs_key_dark_mode"
     }
 }
