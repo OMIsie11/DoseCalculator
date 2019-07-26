@@ -58,10 +58,14 @@ class MainActivity : AppCompatActivity() {
                 !edit_text_mass.validateNumericInput() -> edit_text_mass.error =
                     getString(R.string.incorrect_input)
                 edit_text_substance.validateNumericInput() && edit_text_medicine.validateNumericInput()
-                        && edit_text_medicine.validateNumericInput() -> viewModel.performCalculations(
-                    lek, edit_text_substance.text.toString().toDouble(),
-                    edit_text_medicine.text.toString().toDouble(), edit_text_mass.text.toString().toDouble()
-                )
+                        && edit_text_medicine.validateNumericInput() ->
+                    viewModel.performCalculations(
+                        lek,
+                        edit_text_substance.text.toString().toDouble(),
+                        edit_text_medicine.text.toString().toDouble(),
+                        edit_text_mass.text.toString().toDouble(),
+                        getString(R.string.result_warning)
+                    )
             }
         }
     }

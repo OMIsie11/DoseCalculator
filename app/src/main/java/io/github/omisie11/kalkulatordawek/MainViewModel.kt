@@ -14,7 +14,13 @@ class MainViewModel : ViewModel() {
 
     fun getResult(): LiveData<String> = calculationsResult
 
-    fun performCalculations(lek: Lek, stezenieSubstancji: Double, iloscSyropu: Double, masaCiala: Double) {
-        calculationsResult.value = calculateDose(lek, stezenieSubstancji, iloscSyropu, masaCiala)
+    fun performCalculations(
+        lek: Lek,
+        stezenieSubstancji: Double,
+        iloscSyropu: Double,
+        masaCiala: Double,
+        uwagaWyliczenia: String
+    ) {
+        calculationsResult.value = calculateDose(lek, stezenieSubstancji, iloscSyropu, masaCiala, uwagaWyliczenia)
     }
 }

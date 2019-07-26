@@ -13,7 +13,7 @@
     <string name="substance_mg">Substancja [mg]</string>
     <string name="this_field_cannot_be_blank">Te pole nie może być puste</string>
     <string name="weight_kg">Waga [kg]</string>
-    <string name="result_warning">Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady
-        lekarskiej.
+    <string name="result_warning"><b>Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady
+        lekarskiej.</b>
     </string>
 </resources>

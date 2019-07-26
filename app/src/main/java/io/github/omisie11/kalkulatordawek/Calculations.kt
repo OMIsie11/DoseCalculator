@@ -3,11 +3,11 @@ package io.github.omisie11.kalkulatordawek
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-fun calculateDose(lek: Lek, stezenieSubstancji: Double, iloscSyropu: Double, masaCiala: Double): String {
+fun calculateDose(lek: Lek, stezenieSubstancji: Double, iloscSyropu: Double, masaCiala: Double,
+                  uwagaWyliczenia: String): String {
     if (stezenieSubstancji == 0.0 || iloscSyropu == 0.0 || masaCiala == 0.0) return "Błędne wartości"
 
-    var informacja: String =
-        "Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady lekarskiej."
+    var informacja: String = uwagaWyliczenia
 
     val stezenie = stezenieSubstancji / iloscSyropu
 
