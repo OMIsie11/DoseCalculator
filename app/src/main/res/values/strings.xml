@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">Kalkulator Dawek</string>
+    <string name="app_name">Dose Calculator</string>
+    <string name="results_of_calculations_will_be_shown_here">Results of calculations will be shown here</string>
+    <string name="choose_the_active_substance">Choose the active substance</string>
+    <string name="ibuprofen">Ibuprofen</string>
+    <string name="paracetamol">Paracetamol</string>
+    <string name="enter_medicine_concentration">Enter medicine concentration</string>
+    <string name="substance_mg">Substance [mg]</string>
+    <string name="medicine_ml">Medicine [ml]</string>
+    <string name="enter_body_weight">Enter body weight</string>
+    <string name="weight_kg">Weight [kg]</string>
+    <string name="calculate">Calculate</string>
+    <string name="this_field_cannot_be_blank">This field cannot be blank</string>
+    <string name="incorrect_input">Incorrect input</string>
+    <string name="result_warning">Note: The following calculations are for information purposes only and do not
+        constitute medical advice.
+    </string>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kalkulator Dawek</string>
+    <string name="calculate">Licz</string>
+    <string name="choose_the_active_substance">Wybierz substancję aktywną</string>
+    <string name="enter_body_weight">Podaj wagę ciała</string>
+    <string name="enter_medicine_concentration">Podaj stężenie substancji</string>
+    <string name="ibuprofen">Ibuprofen</string>
+    <string name="incorrect_input">Nieprawidłowe dane</string>
+    <string name="medicine_ml">Syrop [ml]</string>
+    <string name="paracetamol">Paracetamol</string>
+    <string name="results_of_calculations_will_be_shown_here">Wyniki obliczeń pojawią się tutaj</string>
+    <string name="substance_mg">Substancja [mg]</string>
+    <string name="this_field_cannot_be_blank">Te pole nie może być puste</string>
+    <string name="weight_kg">Waga [kg]</string>
+    <string name="result_warning">Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady
+        lekarskiej.
+    </string>
+</resources>
