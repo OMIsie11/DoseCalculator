@@ -1,4 +1,4 @@
-package io.github.omisie11.kalkulatordawek
+package io.github.omisie11.dosecalculator
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,12 +15,18 @@ class MainViewModel : ViewModel() {
     fun getResult(): LiveData<String> = calculationsResult
 
     fun performCalculations(
-        lek: Lek,
+        medicine: Medicine,
         stezenieSubstancji: Double,
         iloscSyropu: Double,
         masaCiala: Double,
         uwagaWyliczenia: String
     ) {
-        calculationsResult.value = calculateDose(lek, stezenieSubstancji, iloscSyropu, masaCiala, uwagaWyliczenia)
+        calculationsResult.value = calculateDose(
+            medicine,
+            stezenieSubstancji,
+            iloscSyropu,
+            masaCiala,
+            uwagaWyliczenia
+        )
     }
 }

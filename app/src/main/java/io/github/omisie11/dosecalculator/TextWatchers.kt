@@ -1,4 +1,4 @@
-package io.github.omisie11.kalkulatordawek
+package io.github.omisie11.dosecalculator
 
 import android.text.TextWatcher
 import android.text.Editable
