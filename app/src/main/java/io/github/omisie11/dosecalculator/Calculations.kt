@@ -66,3 +66,63 @@ fun calculateDose(
 
     return result
 }
+
+data class CalculationsResult(
+    val medicineMinMg: Double,
+    val medicineDailyMinMg: Double,
+    val medicineMaxMg: Double,
+    val medicineDailyMaxMg: Double,
+    var isAdultMaxDoseInfoNeeded: Boolean,
+    var isIbuprofenAlertNeeded: Boolean,
+    val medicineMinMl: Double,
+    val medicineDailyMinMl: Double,
+    val medicineMaxMl: Double,
+    val medicineDailyMaxMl: Double,
+    var isDailyMinMlEqualDailyMaxMl: Boolean
+)
+
+// ToDo: Test this function
+fun roundDoubleToTwoDecimalPoints(doubleToRound: Double): Double =
+    BigDecimal(doubleToRound).setScale(2, RoundingMode.HALF_EVEN).toDouble()
+
+// ToDo: Test new implementation
+fun calculateDoseNew(
+    medicine: Medicine, substanceConcentration: Double,
+    amountOfMedicine: Double, bodyWeight: Double
+): CalculationsResult {
+
+    val concentration = substanceConcentration / amountOfMedicine
+
+    var medicineMinMg: Double = medicine.singleMin * bodyWeight
+    var medicineDailyMinMg: Double = medicine.dailyMin * bodyWeight
+    var medicineMaxMg: Double = medicine.singleMax * bodyWeight
+    var medicineDailyMaxMg: Double = medicine.dailyMax * bodyWeight
+
+    var isAdultMaxDoseInfoNeeded: Boolean = false
+    var isIbuprofenAlertNeeded: Boolean = false
+
+    if (medicineDailyMaxMg > medicine.max) {
+        medicineDailyMinMg = medicine.max.toDouble()
+        medicineDailyMaxMg = medicine.max.toDouble()
+        medicineMinMg = (medicine.max / medicine.count).toDouble()
+        medicineMaxMg = (medicine.max / medicine.count).toDouble()
+
+        isAdultMaxDoseInfoNeeded = true
+
+        if (medicine is Ibuprofen) isIbuprofenAlertNeeded = true
+    }
+
+    val medicineMinMl: Double = medicineMinMg / concentration
+    val medicineDailyMinMl: Double = medicineDailyMinMg / concentration
+    val medicineMaxMl: Double = medicineMaxMg / concentration
+    val medicineDailyMaxMl: Double = medicineDailyMaxMg / concentration
+
+    val isDailyMinMlEqualDailyMaxMl = medicineDailyMinMl == medicineDailyMaxMl
+
+    return CalculationsResult(
+        medicineMinMg, medicineDailyMinMg, medicineMaxMg,
+        medicineDailyMaxMg, isAdultMaxDoseInfoNeeded, isIbuprofenAlertNeeded,
+        medicineMinMl, medicineDailyMinMl, medicineMaxMl, medicineDailyMaxMl,
+        isDailyMinMlEqualDailyMaxMl
+    )
+}
