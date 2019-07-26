@@ -30,34 +30,34 @@ class MainActivity : AppCompatActivity() {
 
         radio_ibuprofen.isChecked = true
 
-        edit_text_substancja.addTextChangedListener(DoseTextWatcher(edit_text_substancja))
-        edit_text_syrop.addTextChangedListener(DoseTextWatcher(edit_text_syrop))
-        edit_text_masa.addTextChangedListener(MassTextWatcher(edit_text_masa))
+        edit_text_substance.addTextChangedListener(DoseTextWatcher(edit_text_substance))
+        edit_text_medicine.addTextChangedListener(DoseTextWatcher(edit_text_medicine))
+        edit_text_mass.addTextChangedListener(MassTextWatcher(edit_text_mass))
 
         val viewModel = ViewModelProviders.of(this)[MainViewModel::class.java]
         viewModel.getResult().observe(this, Observer<String> { result ->
-            text_wynik.text = result
+            text_result.text = result
         })
 
-        button_licz.setOnClickListener {
-            val lek = if (findViewById<RadioButton>(radio_group_lek.checkedRadioButtonId) == radio_ibuprofen)
+        button_calculate.setOnClickListener {
+            val lek = if (findViewById<RadioButton>(radio_group_medicine.checkedRadioButtonId) == radio_ibuprofen)
                 Ibuprofen() else Paracetamol()
 
             when {
-                edit_text_substancja.text.toString().isBlank() -> edit_text_substancja.error =
+                edit_text_substance.text.toString().isBlank() -> edit_text_substance.error =
                     "To pole nie może być puste"
-                edit_text_syrop.text.toString().isBlank() -> edit_text_syrop.error =
+                edit_text_medicine.text.toString().isBlank() -> edit_text_medicine.error =
                     "To pole nie może być puste"
-                edit_text_masa.text.toString().isBlank() -> edit_text_substancja.error =
+                edit_text_mass.text.toString().isBlank() -> edit_text_mass.error =
                     "To pole nie może być puste"
-                !edit_text_substancja.validateNumericInput() -> edit_text_substancja.error = "Niepoprawne dane"
-                !edit_text_syrop.validateNumericInput() -> edit_text_syrop.error = "Niepoprawne dane"
-                !edit_text_masa.validateNumericInput() -> edit_text_masa.error = "Niepoprawne dane"
-                edit_text_substancja.validateNumericInput() && edit_text_syrop.validateNumericInput()
-                        && edit_text_syrop.validateNumericInput() ->
+                !edit_text_substance.validateNumericInput() -> edit_text_substance.error = "Niepoprawne dane"
+                !edit_text_medicine.validateNumericInput() -> edit_text_medicine.error = "Niepoprawne dane"
+                !edit_text_mass.validateNumericInput() -> edit_text_mass.error = "Niepoprawne dane"
+                edit_text_substance.validateNumericInput() && edit_text_medicine.validateNumericInput()
+                        && edit_text_medicine.validateNumericInput() ->
                     viewModel.performCalculations(
-                        lek, edit_text_substancja.text.toString().toDouble(),
-                        edit_text_syrop.text.toString().toDouble(), edit_text_masa.text.toString().toDouble()
+                        lek, edit_text_substance.text.toString().toDouble(),
+                        edit_text_medicine.text.toString().toDouble(), edit_text_mass.text.toString().toDouble()
                     )
             }
         }
