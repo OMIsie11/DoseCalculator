@@ -3,7 +3,7 @@ package io.github.omisie11.dosecalculator
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-fun calculateDose(
+suspend fun calculateDose(
     medicine: Medicine, substanceConcentration: Double, amountOfMedicine: Double, bodyWeight: Double,
     calculationsAlert: String
 ): String {

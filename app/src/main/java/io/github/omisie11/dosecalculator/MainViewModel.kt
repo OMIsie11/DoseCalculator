@@ -3,8 +3,12 @@ package io.github.omisie11.dosecalculator
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.*
 
 class MainViewModel : ViewModel() {
+
+    private val viewModelJob = Job()
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     private val calculationsResult = MutableLiveData<String>()
 
@@ -16,17 +20,27 @@ class MainViewModel : ViewModel() {
 
     fun performCalculations(
         medicine: Medicine,
-        stezenieSubstancji: Double,
-        iloscSyropu: Double,
-        masaCiala: Double,
-        uwagaWyliczenia: String
+        substanceConcentration: Double,
+        amountOfMedicine: Double,
+        bodyWeight: Double,
+        calculationsAlert: String
     ) {
-        calculationsResult.value = calculateDose(
-            medicine,
-            stezenieSubstancji,
-            iloscSyropu,
-            masaCiala,
-            uwagaWyliczenia
-        )
+        uiScope.launch {
+            val result = async(Dispatchers.IO) {
+                calculateDose(
+                    medicine,
+                    substanceConcentration,
+                    amountOfMedicine,
+                    bodyWeight,
+                    calculationsAlert
+                )
+            }
+            calculationsResult.value = result.await()
+        }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
     }
 }
