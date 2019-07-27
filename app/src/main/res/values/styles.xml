@@ -63,4 +63,11 @@
         <item name="android:colorControlActivated">@color/color_secondary</item>
     </style>
 
+    <style name="AppBarTextAppearance" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/color_on_surface</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-condensed-light</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
 </resources>

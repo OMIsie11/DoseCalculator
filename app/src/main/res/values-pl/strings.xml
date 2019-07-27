@@ -25,4 +25,12 @@
     <string name="get_more_info_about_substance_concetration">Dowiedz się jak uzupełnić poniższe pola dotyczące
         stężenia substancji aktywnej w leku
     </string>
+    <string name="change_theme">Zmień motyw</string>
+    <string name="about">O aplikacji</string>
+    <string name="warning_informational">Wszystkie wyliczenia mają jedynie charakter informacyjny i nie stanowią porady
+        lekarskiej.
+    </string>
+    <string name="app_based_on">Aplikacja jest oparta na kalkulatorze znajdującym się na stronie:
+        <a href="https://mamaistetoskop.pl/test/">https://mamaistetoskop.pl</a>
+    </string>
 </resources>

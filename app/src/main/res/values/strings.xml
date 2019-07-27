@@ -22,4 +22,12 @@
         number of milliliters of syrup.\nFor example: 40 mg of substance per 1 ml of syrup.
     </string>
     <string name="get_more_info_about_substance_concetration">Get more info about substance concentration</string>
+    <string name="about">About</string>
+    <string name="change_theme">Change theme</string>
+    <string name="warning_informational">All calculations are for informational purposes only and do not constitute
+        medical advice.
+    </string>
+    <string name="app_based_on">Application is based on online calculator that You can find here:
+        <a href="https://mamaistetoskop.pl/test/">https://mamaistetoskop.pl</a>
+    </string>
 </resources>

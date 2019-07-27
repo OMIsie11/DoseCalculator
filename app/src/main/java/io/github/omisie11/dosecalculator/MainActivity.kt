@@ -18,23 +18,19 @@ import kotlinx.android.synthetic.main.content_main.*
 class MainActivity : AppCompatActivity() {
 
     private val sharedPrefs: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
+    private lateinit var infoHelpBottomSheetDialog: BottomSheetDialog
+    private lateinit var aboutBottomSheet: BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        //AppCompatDelegate.setDefaultNightMode(
-        //    translateValueToDayNightMode(
-        //        sharedPrefs.getBoolean(PREFS_KEY_THEME, false)
-        //    )
-        //)
+        toolbar.setTitleTextAppearance(this, R.style.AppBarTextAppearance)
 
+        // Set default selection on radiogroup
         radio_ibuprofen.isChecked = true
 
-        // Bottom sheet displayed after click on question mark image
-        val infoHelpBottomSheetDialog = BottomSheetDialog(this)
-        val sheetView = layoutInflater.inflate(R.layout.bottom_sheet_dialog_info, null)
-        infoHelpBottomSheetDialog.setContentView(sheetView)
+        prepareBottomSheetDialogs()
 
         edit_text_substance.addTextChangedListener(DoseTextWatcher(edit_text_substance))
         edit_text_medicine.addTextChangedListener(DoseTextWatcher(edit_text_medicine))
@@ -75,9 +71,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        image_substance_help.setOnClickListener {
-            infoHelpBottomSheetDialog.show()
-        }
+        image_substance_help.setOnClickListener { infoHelpBottomSheetDialog.show() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -86,8 +80,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
-        R.id.action_settings -> {
-            // User chose the "Settings" item, show the app settings UI...
+        R.id.action_about -> {
+            aboutBottomSheet.show()
             true
         }
         R.id.action_dark_mode -> {
@@ -110,6 +104,17 @@ class MainActivity : AppCompatActivity() {
             true
         }
         else -> super.onOptionsItemSelected(item)
+    }
+
+    private fun prepareBottomSheetDialogs() {
+        // Bottom sheet displayed after click on question mark image
+        infoHelpBottomSheetDialog = BottomSheetDialog(this)
+        val infoSheetView = layoutInflater.inflate(R.layout.bottom_sheet_dialog_info, null)
+        infoHelpBottomSheetDialog.setContentView(infoSheetView)
+        // Bottom sheet with about app info
+        aboutBottomSheet = BottomSheetDialog(this)
+        val aboutSheetView = layoutInflater.inflate(R.layout.bottom_sheet_about, null)
+        aboutBottomSheet.setContentView(aboutSheetView)
     }
 
     companion object {
