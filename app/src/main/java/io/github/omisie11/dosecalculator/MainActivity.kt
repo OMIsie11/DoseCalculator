@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         button_calculate.setOnClickListener {
+            handleEditTexFocusOnButtonClick(edit_text_substance, edit_text_medicine, edit_text_mass)
             val lek = if (findViewById<RadioButton>(radio_group_medicine.checkedRadioButtonId) == radio_ibuprofen)
                 Ibuprofen() else Paracetamol()
 
@@ -115,6 +117,14 @@ class MainActivity : AppCompatActivity() {
         aboutBottomSheet = BottomSheetDialog(this)
         val aboutSheetView = layoutInflater.inflate(R.layout.bottom_sheet_about, null)
         aboutBottomSheet.setContentView(aboutSheetView)
+    }
+
+    private fun handleEditTexFocusOnButtonClick(editText1: EditText, editText2: EditText, editText3: EditText) {
+        when {
+            editText1.hasFocus() -> editText1.clearFocus()
+            editText2.hasFocus() -> editText2.clearFocus()
+            editText3.hasFocus() -> editText3.clearFocus()
+        }
     }
 
     companion object {
