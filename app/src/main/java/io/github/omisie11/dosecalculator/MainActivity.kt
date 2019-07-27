@@ -1,10 +1,14 @@
 package io.github.omisie11.dosecalculator
 
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.EditText
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -12,6 +16,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.bottom_sheet_about.view.*
 import kotlinx.android.synthetic.main.content_main.*
 
 
@@ -19,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private val sharedPrefs: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
     private lateinit var infoHelpBottomSheetDialog: BottomSheetDialog
+    private lateinit var aboutSheetView: View
     private lateinit var aboutBottomSheet: BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         toolbar.setTitleTextAppearance(this, R.style.AppBarTextAppearance)
 
-        // Set default selection on radiogroup
+        // Set default selection on radio group
         radio_ibuprofen.isChecked = true
 
         prepareBottomSheetDialogs()
@@ -43,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         button_calculate.setOnClickListener {
+            handleEditTexFocusOnButtonClick(edit_text_substance, edit_text_medicine, edit_text_mass)
             val lek = if (findViewById<RadioButton>(radio_group_medicine.checkedRadioButtonId) == radio_ibuprofen)
                 Ibuprofen() else Paracetamol()
 
@@ -72,6 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         image_substance_help.setOnClickListener { infoHelpBottomSheetDialog.show() }
+        aboutSheetView.text_app_based_on.setOnClickListener { openWebUrl("https://mamaistetoskop.pl/test") }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -113,8 +121,20 @@ class MainActivity : AppCompatActivity() {
         infoHelpBottomSheetDialog.setContentView(infoSheetView)
         // Bottom sheet with about app info
         aboutBottomSheet = BottomSheetDialog(this)
-        val aboutSheetView = layoutInflater.inflate(R.layout.bottom_sheet_about, null)
+        aboutSheetView = layoutInflater.inflate(R.layout.bottom_sheet_about, null)
         aboutBottomSheet.setContentView(aboutSheetView)
+    }
+
+    private fun handleEditTexFocusOnButtonClick(editText1: EditText, editText2: EditText, editText3: EditText) {
+        when {
+            editText1.hasFocus() -> editText1.clearFocus()
+            editText2.hasFocus() -> editText2.clearFocus()
+            editText3.hasFocus() -> editText3.clearFocus()
+        }
+    }
+
+    private fun openWebUrl(urlAddress: String) {
+        if (urlAddress.isNotEmpty()) startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(urlAddress)))
     }
 
     companion object {
