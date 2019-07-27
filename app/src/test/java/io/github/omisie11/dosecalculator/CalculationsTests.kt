@@ -1,6 +1,7 @@
 package io.github.omisie11.dosecalculator
 
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
 class CalculationsTests {
@@ -10,13 +11,15 @@ class CalculationsTests {
 
     @Test
     fun testIbuprofen46mg1ml16kg() {
-        val result = calculateDose(
-            Ibuprofen(),
-            46.0,
-            1.0,
-            16.0,
-            resultWarning
-        )
+        val result = runBlocking {
+            calculateDose(
+                Ibuprofen(),
+                46.0,
+                1.0,
+                16.0,
+                resultWarning
+            )
+        }
         val expected =
             "Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady lekarskiej." +
                     "\nJednorazowa dawka: 2.32-3.48 ml (odpowiednik 106.67-160.00 mg Ibuprofenu)" +
@@ -27,13 +30,15 @@ class CalculationsTests {
 
     @Test
     fun testIbuprofen89mg1ml24kg() {
-        val result = calculateDose(
-            Ibuprofen(),
-            89.0,
-            1.0,
-            24.0,
-            resultWarning
-        )
+        val result = runBlocking {
+            calculateDose(
+                Ibuprofen(),
+                89.0,
+                1.0,
+                24.0,
+                resultWarning
+            )
+        }
         val expected =
             "Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady lekarskiej." +
                     "\nJednorazowa dawka: 1.80-2.70 ml (odpowiednik 160.00-240.00 mg Ibuprofenu)" +
@@ -44,13 +49,15 @@ class CalculationsTests {
 
     @Test
     fun testIbuprofen132mg3ml56kg() {
-        val result = calculateDose(
-            Ibuprofen(),
-            132.0,
-            3.0,
-            56.0,
-            resultWarning
-        )
+        val result = runBlocking {
+            calculateDose(
+                Ibuprofen(),
+                132.0,
+                3.0,
+                56.0,
+                resultWarning
+            )
+        }
         val expected =
             "Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady lekarskiej." +
                     "\nJednorazowa dawka: 9.09 ml (odpowiednik 400.00 mg Ibuprofenu)" +
@@ -64,13 +71,15 @@ class CalculationsTests {
 
     @Test
     fun testParacetamol46mg1ml16kg() {
-        val result = calculateDose(
-            Paracetamol(),
-            46.0,
-            1.0,
-            16.0,
-            resultWarning
-        )
+        val result = runBlocking {
+            calculateDose(
+                Paracetamol(),
+                46.0,
+                1.0,
+                16.0,
+                resultWarning
+            )
+        }
         val expected =
             "Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady lekarskiej." +
                     "\nJednorazowa dawka: 5.22 ml (odpowiednik 240.00 mg Paracetamolu)" +
@@ -81,13 +90,15 @@ class CalculationsTests {
 
     @Test
     fun testParacetamol89mg1ml24kg() {
-        val result = calculateDose(
-            Paracetamol(),
-            89.0,
-            1.0,
-            24.0,
-            resultWarning
-        )
+        val result = runBlocking {
+            calculateDose(
+                Paracetamol(),
+                89.0,
+                1.0,
+                24.0,
+                resultWarning
+            )
+        }
         val expected =
             "Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady lekarskiej." +
                     "\nJednorazowa dawka: 4.04 ml (odpowiednik 360.00 mg Paracetamolu)" +
@@ -98,13 +109,15 @@ class CalculationsTests {
 
     @Test
     fun testParacetamol132mg3ml56kg() {
-        val result = calculateDose(
-            Paracetamol(),
-            132.0,
-            3.0,
-            56.0,
-            resultWarning
-        )
+        val result = runBlocking {
+            calculateDose(
+                Paracetamol(),
+                132.0,
+                3.0,
+                56.0,
+                resultWarning
+            )
+        }
         val expected =
             "Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady lekarskiej." +
                     "\nJednorazowa dawka: 19.09 ml (odpowiednik 840.00 mg Paracetamolu)" +
