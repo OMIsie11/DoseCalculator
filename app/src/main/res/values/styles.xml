@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+    <style name="DoseCalcTheme" parent="Theme.MaterialComponents.DayNight">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryVariant">@color/color_primary_variant</item>
         <item name="colorOnPrimary">@color/color_on_primary</item>
@@ -29,7 +29,7 @@
         <item name="textInputStyle">@style/AppTextInputLayout.OutlinedBox</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="DoseCalcTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
