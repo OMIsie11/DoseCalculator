@@ -43,5 +43,7 @@
     <string name="calc_output_ibuprofen">Większe dawki leku można przyjmować jedynie pod nadzorem i na zlecenie
         lekarza.
     </string>
+    <string name="single_dose">Jednorazowa dawka</string>
+    <string name="daily_dose">Dawka dobowa</string>
 
 </resources>

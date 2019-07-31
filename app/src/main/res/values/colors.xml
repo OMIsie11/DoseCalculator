@@ -13,4 +13,6 @@
     <color name="color_background">#ffffff</color>
     <color name="color_on_background">#000000</color>
     <color name="color_status_bar">#ff292929</color>
+
+    <color name="divider_color">#e0e0e0</color>
 </resources>

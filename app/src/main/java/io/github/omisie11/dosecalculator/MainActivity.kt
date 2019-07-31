@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.content_main.*
 class MainActivity : AppCompatActivity() {
 
     private val sharedPrefs: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
+    private val resultBottomSheet by lazy { ResultBottomSheetFragment() }
     private lateinit var infoHelpBottomSheetDialog: BottomSheetDialog
     private lateinit var aboutSheetView: View
     private lateinit var aboutBottomSheet: BottomSheetDialog
@@ -94,13 +95,15 @@ class MainActivity : AppCompatActivity() {
                 !edit_text_mass.validateNumericInput() -> edit_text_mass.error =
                     getString(R.string.incorrect_input)
                 edit_text_substance.validateNumericInput() && edit_text_medicine.validateNumericInput()
-                        && edit_text_medicine.validateNumericInput() ->
+                        && edit_text_medicine.validateNumericInput() -> {
                     viewModel.performCalculations(
                         lek,
                         edit_text_substance.text.toString().toDouble(),
                         edit_text_medicine.text.toString().toDouble(),
                         edit_text_mass.text.toString().toDouble()
                     )
+                    resultBottomSheet.show(supportFragmentManager, "result_bottom_sheet")
+                }
             }
         }
 

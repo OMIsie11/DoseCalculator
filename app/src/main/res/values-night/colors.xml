@@ -12,4 +12,6 @@
     <color name="color_on_surface">#FFFFFF</color>
     <color name="color_background">#000000</color>
     <color name="color_on_background">#FFFFFF</color>
+
+    <color name="divider_color">#4e4e4e</color>
 </resources>
