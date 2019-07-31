@@ -25,4 +25,15 @@
     <string name="get_more_info_about_substance_concetration">Dowiedz się jak uzupełnić poniższe pola dotyczące
         stężenia substancji aktywnej w leku
     </string>
+
+    <!-- Calculations output -->
+    <!-- Pamiętaj, że maksymalna dopuszczalna dawka dobowa ${medicine.name}u dla osoby dorosłej wynosi
+    $medicineDailyMaxMg mg. -->
+    <string name="calc_output_daily_dose_adult">Pamiętaj, że maksymalna dopuszczalna dawka dobowa 1$%s dla osoby
+        dorosłej wynosi 2$%f mg.
+    </string>
+    <string name="calc_output_ibuprofen">Większe dawki leku można przyjmować jedynie pod nadzorem i na zlecenie
+        lekarza.
+    </string>
+
 </resources>

@@ -22,4 +22,15 @@
         number of milliliters of syrup.\nFor example: 40 mg of substance per 1 ml of syrup.
     </string>
     <string name="get_more_info_about_substance_concetration">Get more info about substance concentration</string>
+
+    <!-- Calculations output -->
+    <!-- Remember that the maximum permitted daily dose of ${medicine.name} for an adult is $medicineDailyMaxMg mg. -->
+    <string name="calc_output_daily_dose_adult">Remember that the maximum permitted daily dose of 1$%s for an adult is
+        2$%d mg.
+    </string>
+    <string name="calc_output_ibuprofen">Larger doses of the drug can be taken only under the supervision and at the
+        request of a doctor.
+    </string>
+
+
 </resources>

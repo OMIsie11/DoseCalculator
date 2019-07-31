@@ -1,4 +1,4 @@
-package io.github.omisie11.dosecalculator
+package io.github.omisie11.dosecalculator.model
 
 open class Medicine {
     open val name = "Medicine"

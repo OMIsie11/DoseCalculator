@@ -1,6 +1,8 @@
 package io.github.omisie11.dosecalculator
 
 import android.widget.EditText
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 fun EditText.validateNumericInput(): Boolean {
     val input: String = this.text.toString()
@@ -10,3 +12,5 @@ fun EditText.validateNumericInput(): Boolean {
         else -> false
     }
 }
+
+fun Double.roundToTwoDecimalPoints() = BigDecimal(this).setScale(2, RoundingMode.HALF_EVEN).toDouble()
