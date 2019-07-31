@@ -15,6 +15,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import io.github.omisie11.dosecalculator.model.CalculationsResult
+import io.github.omisie11.dosecalculator.model.Ibuprofen
+import io.github.omisie11.dosecalculator.model.Paracetamol
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottom_sheet_about.view.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -43,9 +46,33 @@ class MainActivity : AppCompatActivity() {
         edit_text_mass.addTextChangedListener(MassTextWatcher(edit_text_mass))
 
         val viewModel = ViewModelProviders.of(this)[MainViewModel::class.java]
-        viewModel.getResult().observe(this, Observer<String> { result ->
-            if (result.isBlank()) getString(R.string.results_of_calculations_will_be_shown_here)
-            else text_result.text = result
+        viewModel.getResult().observe(this, Observer<CalculationsResult> { result ->
+            //if (result.isBlank()) getString(R.string.results_of_calculations_will_be_shown_here)
+            //else text_result.text = result
+            if (result.medicineName.isBlank()) text_result.text =
+                getString(R.string.results_of_calculations_will_be_shown_here)
+            else {
+                var output = ""
+                if (result.isAdultMaxDoseInfoNeeded) output += "Pamiętaj, że maksymalna dopuszczalna dawka dobowa " +
+                        "${result.medicineName}u dla osoby dorosłej wynosi ${result.medicineDailyMaxMg} mg."
+                if (result.isIbuprofenAlertNeeded) output += "\nWiększe dawki leku można przyjmować jedynie pod " +
+                        "nadzorem i na zlecenie lekarza."
+                output += if (result.isDailyMinMlEqualDailyMaxMl) {
+                    "\nJednorazowa dawka: ${result.medicineMinMl} ml (odpowiednik ${result.medicineMinMg} mg" +
+                            " ${result.medicineName}u)" +
+                            "\nMożna podać ${result.medicineCount} takie dawki w ciągu doby." +
+                            "\nDobowa dawka: ${result.medicineDailyMinMl} ml (odpowiednik " +
+                            "${result.medicineDailyMinMg} mg ${result.medicineName}u)"
+                } else {
+                    "\nJednorazowa dawka: ${result.medicineMinMl}-${result.medicineMaxMl} ml (odpowiednik " +
+                            "${result.medicineMinMg}-${result.medicineMaxMg} mg ${result.medicineName}u)" +
+                            "\nMożna podać ${result.medicineCount} takie dawki w ciągu doby." +
+                            "\nDobowa dawka: ${result.medicineDailyMinMl}-${result.medicineDailyMaxMl} ml " +
+                            "(odpowiednik ${result.medicineDailyMinMg}-${result.medicineDailyMaxMg} mg " +
+                            "${result.medicineName}u)"
+                }
+                text_result.text = output
+            }
         })
 
         button_calculate.setOnClickListener {
@@ -72,8 +99,7 @@ class MainActivity : AppCompatActivity() {
                         lek,
                         edit_text_substance.text.toString().toDouble(),
                         edit_text_medicine.text.toString().toDouble(),
-                        edit_text_mass.text.toString().toDouble(),
-                        getString(R.string.result_warning)
+                        edit_text_mass.text.toString().toDouble()
                     )
             }
         }

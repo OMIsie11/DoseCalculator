@@ -33,4 +33,15 @@
     <string name="app_based_on">Aplikacja jest oparta na kalkulatorze znajdującym się na stronie:
         <a href="https://mamaistetoskop.pl/test/">https://mamaistetoskop.pl</a>
     </string>
+
+    <!-- Calculations output -->
+    <!-- Pamiętaj, że maksymalna dopuszczalna dawka dobowa ${medicine.name}u dla osoby dorosłej wynosi
+    $medicineDailyMaxMg mg. -->
+    <string name="calc_output_daily_dose_adult">Pamiętaj, że maksymalna dopuszczalna dawka dobowa 1$%s dla osoby
+        dorosłej wynosi 2$%f mg.
+    </string>
+    <string name="calc_output_ibuprofen">Większe dawki leku można przyjmować jedynie pod nadzorem i na zlecenie
+        lekarza.
+    </string>
+
 </resources>

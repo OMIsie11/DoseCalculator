@@ -2,6 +2,8 @@ package io.github.omisie11.dosecalculator
 
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.runBlocking
+import io.github.omisie11.dosecalculator.model.Ibuprofen
+import io.github.omisie11.dosecalculator.model.Paracetamol
 import org.junit.Test
 
 class CalculationsTests {

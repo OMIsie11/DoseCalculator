@@ -30,4 +30,15 @@
     <string name="app_based_on">Application is based on online calculator that You can find here:
         <a href="https://mamaistetoskop.pl/test/">https://mamaistetoskop.pl</a>
     </string>
+
+    <!-- Calculations output -->
+    <!-- Remember that the maximum permitted daily dose of ${medicine.name} for an adult is $medicineDailyMaxMg mg. -->
+    <string name="calc_output_daily_dose_adult">Remember that the maximum permitted daily dose of 1$%s for an adult is
+        2$%d mg.
+    </string>
+    <string name="calc_output_ibuprofen">Larger doses of the drug can be taken only under the supervision and at the
+        request of a doctor.
+    </string>
+
+
 </resources>
