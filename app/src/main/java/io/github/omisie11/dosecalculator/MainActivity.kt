@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.getResult().observe(this, Observer<CalculationsResult> { result ->
             //if (result.isBlank()) getString(R.string.results_of_calculations_will_be_shown_here)
             //else text_result.text = result
+            /*
             if (result.medicineName.isBlank()) text_result.text =
                 getString(R.string.results_of_calculations_will_be_shown_here)
             else {
@@ -73,7 +74,8 @@ class MainActivity : AppCompatActivity() {
                             "${result.medicineName}u)"
                 }
                 text_result.text = output
-            }
+            }*/
+            //calculationsResult = result
         })
 
         button_calculate.setOnClickListener {
@@ -102,6 +104,10 @@ class MainActivity : AppCompatActivity() {
                         edit_text_medicine.text.toString().toDouble(),
                         edit_text_mass.text.toString().toDouble()
                     )
+
+                    //val bundle = Bundle()
+                    //bundle.putParcelable(KEY_CALCULATIONS_RESULT, calculationsResult)
+                    //resultBottomSheet.arguments = bundle
                     resultBottomSheet.show(supportFragmentManager, "result_bottom_sheet")
                 }
             }
@@ -168,5 +174,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val PREFS_KEY_DARK_MODE = "prefs_key_dark_mode"
+        const val KEY_CALCULATIONS_RESULT = "calculations_result"
     }
 }

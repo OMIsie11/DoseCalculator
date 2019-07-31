@@ -49,6 +49,7 @@
             android:id="@+id/text_single_dose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
@@ -60,16 +61,16 @@
             android:text="@string/daily_dose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/text_single_dose"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+            android:layout_marginEnd="8dp" android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintTop_toBottomOf="@+id/text_number_of_doses" android:layout_marginTop="16dp"/>
     <TextView
             android:id="@+id/text_daily_dose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             app:layout_constraintTop_toBottomOf="@+id/textView6"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
@@ -81,25 +82,25 @@
             android:id="@+id/text_number_of_doses"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:layout_marginStart="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/text_daily_dose"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="16dp"
-            tools:text="You can take 3 such doses throughout the day"/>
+            tools:text="You can take 3 such doses throughout the day"
+            app:layout_constraintTop_toBottomOf="@+id/text_single_dose" android:layout_marginTop="8dp"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/text_additional_info"
+            android:gravity="center"
             android:layout_marginEnd="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/text_number_of_doses"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             tools:text="Daily dose for aduly is 1200-1400mg of Ibuprofen"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintHorizontal_bias="0.385" app:layout_constraintTop_toBottomOf="@+id/text_daily_dose"
+            android:layout_marginTop="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
