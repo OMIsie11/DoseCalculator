@@ -2,7 +2,6 @@ package io.github.omisie11.dosecalculator
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,59 +26,44 @@ class ResultBottomSheetFragment : BottomSheetDialogFragment() {
         viewModel.getResult().observe(viewLifecycleOwner, Observer<CalculationsResult> { result ->
 
             if (result.isDailyMinMlEqualDailyMaxMl) {
-                text_single_dose.text = "${result.medicineMinMl} ml (odpowiednik ${result.medicineMinMg} mg " +
-                        "${result.medicineName}u)"
-                text_daily_dose.text = "${result.medicineDailyMinMl} ml (odpowiednik " +
-                        "${result.medicineDailyMinMg} mg ${result.medicineName}u)"
+                text_single_dose.text = getString(
+                    R.string.single_dose_value_template,
+                    result.medicineMinMl.toString(),
+                    result.medicineMinMg.toString(),
+                    result.medicineName
+                )
+                text_daily_dose.text = getString(
+                    R.string.daily_dose_value_template,
+                    result.medicineDailyMinMl.toString(),
+                    result.medicineDailyMinMg.toString(),
+                    result.medicineName
+                )
             } else {
-                text_single_dose.text = "${result.medicineMinMl}-${result.medicineMaxMl} ml (odpowiednik " +
-                        "${result.medicineMinMg}-${result.medicineMaxMg} mg ${result.medicineName}u)"
-                text_daily_dose.text = "${result.medicineDailyMinMl}-${result.medicineDailyMaxMl} ml " +
-                        "(odpowiednik ${result.medicineDailyMinMg}-${result.medicineDailyMaxMg} mg " +
-                        "${result.medicineName}u)"
+                text_single_dose.text = getString(
+                    R.string.single_dose_section_template,
+                    result.medicineMinMl.toString(), result.medicineMaxMl.toString(),
+                    result.medicineMinMg.toString(), result.medicineMaxMg.toString(),
+                    result.medicineName
+                )
+                text_daily_dose.text = getString(
+                    R.string.daily_dose_section_template,
+                    result.medicineDailyMinMl.toString(), result.medicineDailyMaxMl.toString(),
+                    result.medicineDailyMinMg.toString(), result.medicineDailyMaxMg.toString(),
+                    result.medicineName
+                )
             }
-
-            text_number_of_doses.text = "Można podać ${result.medicineCount} takie dawki w ciągu doby."
+            text_number_of_doses.text = getString(R.string.output_number_of_doses, result.medicineCount.toString())
 
             var output = ""
-            if (result.isAdultMaxDoseInfoNeeded) output += "Pamiętaj, że maksymalna dopuszczalna dawka dobowa " +
-                    "${result.medicineName}u dla osoby dorosłej wynosi ${result.medicineDailyMaxMg} mg."
-            if (result.isIbuprofenAlertNeeded) output += "\nWiększe dawki leku można przyjmować jedynie pod " +
-                    "nadzorem i na zlecenie lekarza."
+            if (result.isAdultMaxDoseInfoNeeded) output += getString(
+                R.string.calc_output_daily_dose_adult,
+                result.medicineName,
+                result.medicineDailyMaxMg.toString()
+            )
+            if (result.isIbuprofenAlertNeeded) output += getString(R.string.calc_output_ibuprofen)
             text_additional_info.text = output
-
-            Log.d("star", "result.isAdultMaxDoseInfoNeeded: ${result.isAdultMaxDoseInfoNeeded}")
-            Log.d("star", "result.isIbuprofenAlertNeeded: ${result.isIbuprofenAlertNeeded}")
-
         })
 
         button_close.setOnClickListener { dismiss() }
     }
 }
-//if (result.isBlank()) getString(R.string.results_of_calculations_will_be_shown_here)
-//else text_result.text = result
-/*
-if (result.medicineName.isBlank()) text_result.text =
-    getString(R.string.results_of_calculations_will_be_shown_here)
-else {
-    var output = ""
-    if (result.isAdultMaxDoseInfoNeeded) output += "Pamiętaj, że maksymalna dopuszczalna dawka dobowa " +
-            "${result.medicineName}u dla osoby dorosłej wynosi ${result.medicineDailyMaxMg} mg."
-    if (result.isIbuprofenAlertNeeded) output += "\nWiększe dawki leku można przyjmować jedynie pod " +
-            "nadzorem i na zlecenie lekarza."
-    output += if (result.isDailyMinMlEqualDailyMaxMl) {
-        "\nJednorazowa dawka: ${result.medicineMinMl} ml (odpowiednik ${result.medicineMinMg} mg" +
-                " ${result.medicineName}u)" +
-                "\nMożna podać ${result.medicineCount} takie dawki w ciągu doby." +
-                "\nDobowa dawka: ${result.medicineDailyMinMl} ml (odpowiednik " +
-                "${result.medicineDailyMinMg} mg ${result.medicineName}u)"
-    } else {
-        "\nJednorazowa dawka: ${result.medicineMinMl}-${result.medicineMaxMl} ml (odpowiednik " +
-                "${result.medicineMinMg}-${result.medicineMaxMg} mg ${result.medicineName}u)" +
-                "\nMożna podać ${result.medicineCount} takie dawki w ciągu doby." +
-                "\nDobowa dawka: ${result.medicineDailyMinMl}-${result.medicineDailyMaxMl} ml " +
-                "(odpowiednik ${result.medicineDailyMinMg}-${result.medicineDailyMaxMg} mg " +
-                "${result.medicineName}u)"
-    }
-    text_result.text = output
-}*/

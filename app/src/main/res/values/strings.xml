@@ -33,12 +33,24 @@
 
     <!-- Calculations output -->
     <!-- Remember that the maximum permitted daily dose of ${medicine.name} for an adult is $medicineDailyMaxMg mg. -->
-    <string name="calc_output_daily_dose_adult">Remember that the maximum permitted daily dose of 1$%s for an adult is
-        2$%d mg.
+    <string name="calc_output_daily_dose_adult">Remember that the maximum permitted daily dose of %1$s for an adult is
+        %2$s mg.
     </string>
-    <string name="calc_output_ibuprofen">Larger doses of the drug can be taken only under the supervision and at the
+    <string name="calc_output_ibuprofen">\nLarger doses of the drug can be taken only under the supervision and at the
         request of a doctor.
     </string>
+    <!-- "${result.medicineMinMl} ml (equivalent to ${result.medicineMinMg} mg of ${result.medicineName})"-->
+    <string name="single_dose_value_template">%1$s ml (equivalent to %2$s mg of %3$s)</string>
+    <!-- "${result.medicineDailyMinMl} ml (equivalent to ${result.medicineDailyMinMg} mg of ${result.medicineName})"-->
+    <string name="daily_dose_value_template">%1$s ml (equivalent to %2$s mg of %3$s</string>
+    <!-- "${result.medicineMinMl}-${result.medicineMaxMl} ml (equivalent to ${result.medicineMinMg}-
+    ${result.medicineMaxMg} mg of ${result.medicineName})" -->
+    <string name="single_dose_section_template">%1$s-%2$s ml (equivalent to %3$s-%4$s mg of %5$s</string>
+    <!-- "${result.medicineDailyMinMl}-${result.medicineDailyMaxMl} ml (equivalent to ${result.medicineDailyMinMg}-
+     ${result.medicineDailyMaxMg} mg of ${result.medicineName})" -->
+    <string name="daily_dose_section_template">%1$s-%2$s ml (equivalent to %3$s-%4$s mg of %5$s</string>
+    <!-- "You can take ${result.medicineCount} such doses within 24 hours." -->
+    <string name="output_number_of_doses">You can take %1$s such doses within 24 hours.</string>
     <string name="single_dose">Single dose</string>
     <string name="daily_dose">Daily dose</string>
     <string name="close">Close</string>

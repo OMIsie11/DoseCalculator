@@ -15,8 +15,7 @@ class DoseTextWatcher(private val editText: EditText) : TextWatcher {
         if (s.toString().isNotEmpty()) {
             val input = s.toString()
             when {
-                //input.isBlank() -> editText.error = "To pole nie może być puste"
-                input.toDouble() <= 0.0 -> editText.error = "Nieprawidłowa wartość"
+                input.toDouble() <= 0.0 -> editText.error = editText.resources.getString(R.string.incorrect_input)
             }
         }
     }
@@ -32,9 +31,8 @@ class MassTextWatcher(private val editText: EditText) : TextWatcher {
         if (s.toString().isNotEmpty()) {
             val input = s.toString()
             when {
-                //input.isBlank() -> editText.error = "To pole nie może być puste"
-                input.toDouble() <= 0.0 -> editText.error = "Nieprawidłowa wartość"
-                input.toDouble() > 250 -> editText.error = "Nieprawidłowa wartość"
+                input.toDouble() <= 0.0 -> editText.error = editText.resources.getString(R.string.incorrect_input)
+                input.toDouble() > 250 -> editText.error = editText.resources.getString(R.string.incorrect_input)
             }
         }
     }

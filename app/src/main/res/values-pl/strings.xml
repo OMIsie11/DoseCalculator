@@ -37,12 +37,24 @@
     <!-- Calculations output -->
     <!-- Pamiętaj, że maksymalna dopuszczalna dawka dobowa ${medicine.name}u dla osoby dorosłej wynosi
     $medicineDailyMaxMg mg. -->
-    <string name="calc_output_daily_dose_adult">Pamiętaj, że maksymalna dopuszczalna dawka dobowa 1$%s dla osoby
-        dorosłej wynosi 2$%f mg.
+    <string name="calc_output_daily_dose_adult">Pamiętaj, że maksymalna dopuszczalna dawka dobowa %1$su dla osoby
+        dorosłej wynosi %2$s mg.
     </string>
-    <string name="calc_output_ibuprofen">Większe dawki leku można przyjmować jedynie pod nadzorem i na zlecenie
+    <string name="calc_output_ibuprofen">\nWiększe dawki leku można przyjmować jedynie pod nadzorem i na zlecenie
         lekarza.
     </string>
+    <!-- "${result.medicineMinMl} ml (odpowiednik ${result.medicineMinMg} mg ${result.medicineName}u)" -->
+    <string name="single_dose_value_template">%1$s ml (odpowiednik %2$s mg %3$su)</string>
+    <!-- "${result.medicineDailyMinMl} ml (odpowiednik ${result.medicineDailyMinMg} mg ${result.medicineName}u)" -->
+    <string name="daily_dose_value_template">%1$s ml (odpowiednik %2$s mg %3$su</string>
+    <!-- "${result.medicineMinMl}-${result.medicineMaxMl} ml (odpowiednik ${result.medicineMinMg}-
+    ${result.medicineMaxMg} mg ${result.medicineName}u)" -->
+    <string name="single_dose_section_template">%1$s-%2$s ml (odpowiednik %3$s-%4$s mg %5$su</string>
+    <!-- "${result.medicineDailyMinMl}-${result.medicineDailyMaxMl} ml (odpowiednik ${result.medicineDailyMinMg}-
+    ${result.medicineDailyMaxMg} mg ${result.medicineName}u)" -->
+    <string name="daily_dose_section_template">%1$s-%2$s ml (odpowiednik %3$s-%4$s mg %5$su</string>
+    <!-- "Można podać ${result.medicineCount} takie dawki w ciągu doby." -->
+    <string name="output_number_of_doses">Można podać %1$s takie dawki w ciągu doby.</string>
     <string name="single_dose">Jednorazowa dawka</string>
     <string name="daily_dose">Dawka dobowa</string>
     <string name="close">Zamknij</string>

@@ -58,8 +58,8 @@
         <item name="android:textColor">?attr/colorOnSecondary</item>
     </style>
 
-    <style name="AppTextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
-        <item name="boxBackgroundColor">@color/background_text_input</item>
+    <style name="AppTextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
         <item name="android:colorControlActivated">@color/color_secondary</item>
     </style>
 
