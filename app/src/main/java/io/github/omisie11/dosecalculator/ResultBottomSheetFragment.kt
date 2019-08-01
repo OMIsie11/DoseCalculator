@@ -30,10 +30,10 @@ class ResultBottomSheetFragment : BottomSheetDialogFragment() {
                 text_single_dose.text = "${result.medicineMinMl} ml (odpowiednik ${result.medicineMinMg} mg " +
                         "${result.medicineName}u)"
                 text_daily_dose.text = "${result.medicineDailyMinMl} ml (odpowiednik " +
-                "${result.medicineDailyMinMg} mg ${result.medicineName}u)"
+                        "${result.medicineDailyMinMg} mg ${result.medicineName}u)"
             } else {
                 text_single_dose.text = "${result.medicineMinMl}-${result.medicineMaxMl} ml (odpowiednik " +
-                "${result.medicineMinMg}-${result.medicineMaxMg} mg ${result.medicineName}u)"
+                        "${result.medicineMinMg}-${result.medicineMaxMg} mg ${result.medicineName}u)"
                 text_daily_dose.text = "${result.medicineDailyMinMl}-${result.medicineDailyMaxMl} ml " +
                         "(odpowiednik ${result.medicineDailyMinMg}-${result.medicineDailyMaxMg} mg " +
                         "${result.medicineName}u)"
@@ -52,6 +52,8 @@ class ResultBottomSheetFragment : BottomSheetDialogFragment() {
             Log.d("star", "result.isIbuprofenAlertNeeded: ${result.isIbuprofenAlertNeeded}")
 
         })
+
+        button_close.setOnClickListener { dismiss() }
     }
 }
 //if (result.isBlank()) getString(R.string.results_of_calculations_will_be_shown_here)

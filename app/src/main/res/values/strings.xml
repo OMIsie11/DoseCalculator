@@ -12,6 +12,7 @@
     <string name="calculate">Calculate</string>
     <string name="this_field_cannot_be_blank">This field cannot be blank</string>
     <string name="incorrect_input">Incorrect input</string>
+    <string name="close">Close</string>
     <string name="result_warning">
         <b>Note: The following calculations are for information purposes only and do not
             constitute medical advice.
