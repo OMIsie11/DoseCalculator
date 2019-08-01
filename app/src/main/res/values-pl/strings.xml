@@ -61,7 +61,7 @@
 
     <string name="good_morning">Miłego poranka!</string>
     <string name="good_afternoon">Miłego popołudnia!</string>
-    <string name="good_evening">Miłego wieczora!</string>
+    <string name="good_evening">Miłego wieczoru!</string>
     <string name="good_day">Miłego dnia!</string>
     <string name="help_weight_info">Wprowadź wagę ciała osoby, która ma przyjąć lek.</string>
     <string name="calculate_doses">Oblicz dawki</string>
