@@ -48,4 +48,5 @@
     <string name="good_evening">Good evening!</string>
     <string name="good_day">Good day!</string>
     <string name="help_weight_info">Enter the weight of the person who is going to take the medicine.</string>
+    <string name="calculate_doses">Calculate doses</string>
 </resources>

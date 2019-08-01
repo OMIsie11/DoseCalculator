@@ -12,12 +12,12 @@
     <color name="color_on_surface">#000000</color>
     <color name="color_background">#ffffff</color>
     <color name="color_on_background">#000000</color>
-    <color name="color_status_bar">#ff292929</color>
+    <color name="color_status_bar">#768fff</color>
 
     <color name="divider_color">#e0e0e0</color>
 
     <color name="chip_bg_unchecked">#e8e8e8</color>
-    <color name="chip_bg_checked">#768fff</color>
-    <color name="chip_text_unchecked">#3b3b3b</color>
-    <color name="chip_text_checked">#212121</color>
+    <color name="chip_bg_checked">#0039CB</color>
+    <color name="chip_text_unchecked">#000000</color>
+    <color name="chip_text_checked">#0039CB</color>
 </resources>

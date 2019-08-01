@@ -16,14 +16,14 @@
                 android:id="@+id/text_welcome_greeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="16dp"
                 tools:text="Good morning!"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"/>
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" android:textAllCaps="true"/>
 
         <TextView
                 android:id="@+id/textView7"
@@ -35,7 +35,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/text_welcome_greeting"
-                android:layout_marginTop="16dp"/>
+                android:layout_marginTop="16dp" android:textStyle="normal" android:textAllCaps="true"/>
 
         <HorizontalScrollView
                 android:id="@+id/chips_root"
@@ -89,7 +89,7 @@
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintEnd_toStartOf="@+id/image_substance_help"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"/>
+                android:layout_marginEnd="8dp" android:textAllCaps="true"/>
 
         <ImageView
                 android:id="@+id/image_substance_help"
@@ -108,7 +108,7 @@
                 android:id="@+id/textInputLayout_substance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="160dp"
+                android:minWidth="240dp"
                 android:hint="@string/substance_mg"
                 tools:hint="subst"
                 app:layout_constraintTop_toBottomOf="@id/textView8"
@@ -133,7 +133,7 @@
                 android:id="@+id/textInputLayout_medicine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="160dp"
+                android:minWidth="240dp"
                 android:hint="@string/medicine_ml"
                 tools:hint="med"
                 android:layout_marginTop="16dp"
@@ -161,7 +161,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/image_weight_help"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout_medicine" android:layout_marginTop="16dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout_medicine" android:layout_marginTop="16dp"
+                android:textAllCaps="true"/>
 
         <ImageView
                 android:id="@+id/image_weight_help"
@@ -181,7 +182,7 @@
                 android:id="@+id/textInputLayout_mass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="160dp"
+                android:minWidth="240dp"
                 android:hint="@string/weight_kg"
                 tools:hint="weight"
                 app:layout_constraintStart_toStartOf="parent"
