@@ -10,7 +10,8 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/DoseCalcTheme.NoActionBar">
-        <activity android:name="io.github.omisie11.dosecalculator.MainActivity">
+        <activity android:name="io.github.omisie11.dosecalculator.MainActivity"
+                  android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

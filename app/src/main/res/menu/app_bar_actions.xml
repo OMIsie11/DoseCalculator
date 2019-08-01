@@ -8,9 +8,9 @@
             android:title="@string/change_theme"
             app:showAsAction="ifRoom"/>
 
-    <!-- Settings, should always be in the overflow -->
     <item android:id="@+id/action_about"
           android:title="@string/about"
-          app:showAsAction="never"/>
+          android:icon="@drawable/ic_help_filled_24dp"
+          app:showAsAction="ifRoom"/>
 
 </menu>

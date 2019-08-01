@@ -5,7 +5,6 @@ import io.github.omisie11.dosecalculator.model.Ibuprofen
 import io.github.omisie11.dosecalculator.model.Medicine
 
 
-// ToDo: Test new implementation
 fun calculateDose(
     medicine: Medicine, substanceConcentration: Double,
     amountOfMedicine: Double, bodyWeight: Double

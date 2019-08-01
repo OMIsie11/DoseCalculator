@@ -99,14 +99,14 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             tools:text="Daily dose for aduly is 1200-1400mg of Ibuprofen"
-            app:layout_constraintHorizontal_bias="0.385" app:layout_constraintTop_toBottomOf="@+id/text_daily_dose"
-            android:layout_marginTop="8dp"
-    />
+            app:layout_constraintHorizontal_bias="0.385"
+            app:layout_constraintTop_toBottomOf="@+id/text_daily_dose"
+            android:layout_marginTop="8dp"/>
     <com.google.android.material.button.MaterialButton
             android:id="@+id/button_close"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             app:icon="@drawable/ic_close_24dp"
-            android:text="Close"
+            android:text="@string/close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

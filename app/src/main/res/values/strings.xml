@@ -12,7 +12,6 @@
     <string name="calculate">Calculate</string>
     <string name="this_field_cannot_be_blank">This field cannot be blank</string>
     <string name="incorrect_input">Incorrect input</string>
-    <string name="close">Close</string>
     <string name="result_warning">
         <b>Note: The following calculations are for information purposes only and do not
             constitute medical advice.
@@ -42,4 +41,10 @@
     </string>
     <string name="single_dose">Single dose</string>
     <string name="daily_dose">Daily dose</string>
+    <string name="close">Close</string>
+
+    <string name="good_morning">Good morning!</string>
+    <string name="good_afternoon">Good afternoon!</string>
+    <string name="good_evening">Good evening!</string>
+    <string name="good_day">Good day!</string>
 </resources>

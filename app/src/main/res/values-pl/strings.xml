@@ -13,7 +13,6 @@
     <string name="substance_mg">Substancja [mg]</string>
     <string name="this_field_cannot_be_blank">Te pole nie może być puste</string>
     <string name="weight_kg">Waga [kg]</string>
-    <string name="close">Zamknij</string>
     <string name="result_warning">
         <b>Uwaga: poniższe wyliczenia mają jedynie charakter informacyjny i nie stanowią porady
             lekarskiej.
@@ -46,5 +45,10 @@
     </string>
     <string name="single_dose">Jednorazowa dawka</string>
     <string name="daily_dose">Dawka dobowa</string>
+    <string name="close">Zamknij</string>
 
+    <string name="good_morning">Miłego poranka!</string>
+    <string name="good_afternoon">Miłego popołudnia!</string>
+    <string name="good_evening">Miłego wieczora!</string>
+    <string name="good_day">Miłego dnia!</string>
 </resources>

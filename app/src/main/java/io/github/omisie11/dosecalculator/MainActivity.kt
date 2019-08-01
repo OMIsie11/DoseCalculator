@@ -1,5 +1,6 @@
 package io.github.omisie11.dosecalculator
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
@@ -21,6 +22,7 @@ import io.github.omisie11.dosecalculator.model.Paracetamol
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottom_sheet_about.view.*
 import kotlinx.android.synthetic.main.content_main.*
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -34,8 +36,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-        toolbar.setTitleTextAppearance(this, R.style.AppBarTextAppearance)
+        setSupportActionBar(bottom_app_bar)
 
         // Set default selection on radio group
         radio_ibuprofen.isChecked = true
@@ -74,11 +75,11 @@ class MainActivity : AppCompatActivity() {
                             "${result.medicineName}u)"
                 }
                 text_result.text = output
-            }*/
+            } */
             //calculationsResult = result
         })
 
-        button_calculate.setOnClickListener {
+        fab_calculate.setOnClickListener {
             handleEditTexFocusOnButtonClick(edit_text_substance, edit_text_medicine, edit_text_mass)
             val lek = if (findViewById<RadioButton>(radio_group_medicine.checkedRadioButtonId) == radio_ibuprofen)
                 Ibuprofen() else Paracetamol()
@@ -104,10 +105,6 @@ class MainActivity : AppCompatActivity() {
                         edit_text_medicine.text.toString().toDouble(),
                         edit_text_mass.text.toString().toDouble()
                     )
-
-                    //val bundle = Bundle()
-                    //bundle.putParcelable(KEY_CALCULATIONS_RESULT, calculationsResult)
-                    //resultBottomSheet.arguments = bundle
                     resultBottomSheet.show(supportFragmentManager, "result_bottom_sheet")
                 }
             }
@@ -115,6 +112,11 @@ class MainActivity : AppCompatActivity() {
 
         image_substance_help.setOnClickListener { infoHelpBottomSheetDialog.show() }
         aboutSheetView.text_app_based_on.setOnClickListener { openWebUrl("https://mamaistetoskop.pl/test") }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        text_welcome_greeting.text = getMessageForCurrentTime(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -172,8 +174,16 @@ class MainActivity : AppCompatActivity() {
         if (urlAddress.isNotEmpty()) startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(urlAddress)))
     }
 
+    // Return appropriate welcome String dependent of current hour
+    private fun getMessageForCurrentTime(context: Context): String =
+        when (Calendar.getInstance().get(Calendar.HOUR_OF_DAY)) {
+            in 1..11 -> context.getString(R.string.good_morning)
+            in 12..17 -> context.getString(R.string.good_afternoon)
+            in 18..24 -> context.getString(R.string.good_evening)
+            else -> context.getString(R.string.good_day)
+        }
+
     companion object {
         const val PREFS_KEY_DARK_MODE = "prefs_key_dark_mode"
-        const val KEY_CALCULATIONS_RESULT = "calculations_result"
     }
 }
