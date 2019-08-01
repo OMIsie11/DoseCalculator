@@ -10,17 +10,16 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
-import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import io.github.omisie11.dosecalculator.model.CalculationsResult
+import com.google.android.material.chip.Chip
 import io.github.omisie11.dosecalculator.model.Ibuprofen
 import io.github.omisie11.dosecalculator.model.Paracetamol
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottom_sheet_about.view.*
+import kotlinx.android.synthetic.main.bottom_sheet_dialog_info.view.*
 import kotlinx.android.synthetic.main.content_main.*
 import java.util.*
 
@@ -29,7 +28,8 @@ class MainActivity : AppCompatActivity() {
 
     private val sharedPrefs: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
     private val resultBottomSheet by lazy { ResultBottomSheetFragment() }
-    private lateinit var infoHelpBottomSheetDialog: BottomSheetDialog
+    private lateinit var helpSubstanceBottomSheetDialog: BottomSheetDialog
+    private lateinit var helpWeightBottomSheetDialog: BottomSheetDialog
     private lateinit var aboutSheetView: View
     private lateinit var aboutBottomSheet: BottomSheetDialog
 
@@ -38,8 +38,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(bottom_app_bar)
 
-        // Set default selection on radio group
-        radio_ibuprofen.isChecked = true
+        // Set default selection on chip group
+        chip_group_medicines.check(R.id.chip_ibuprofen)
+        chip_group_medicines.setOnCheckedChangeListener { group, checkedId ->
+            // Set clickable chips, prevent uncheck checked Chip
+            for (i in 0 until group.childCount) {
+                val chip = group.getChildAt(i)
+                chip.isClickable = chip.id != group.checkedChipId
+            }
+        }
 
         prepareBottomSheetDialogs()
 
@@ -48,40 +55,10 @@ class MainActivity : AppCompatActivity() {
         edit_text_mass.addTextChangedListener(MassTextWatcher(edit_text_mass))
 
         val viewModel = ViewModelProviders.of(this)[MainViewModel::class.java]
-        viewModel.getResult().observe(this, Observer<CalculationsResult> { result ->
-            //if (result.isBlank()) getString(R.string.results_of_calculations_will_be_shown_here)
-            //else text_result.text = result
-            /*
-            if (result.medicineName.isBlank()) text_result.text =
-                getString(R.string.results_of_calculations_will_be_shown_here)
-            else {
-                var output = ""
-                if (result.isAdultMaxDoseInfoNeeded) output += "Pamiętaj, że maksymalna dopuszczalna dawka dobowa " +
-                        "${result.medicineName}u dla osoby dorosłej wynosi ${result.medicineDailyMaxMg} mg."
-                if (result.isIbuprofenAlertNeeded) output += "\nWiększe dawki leku można przyjmować jedynie pod " +
-                        "nadzorem i na zlecenie lekarza."
-                output += if (result.isDailyMinMlEqualDailyMaxMl) {
-                    "\nJednorazowa dawka: ${result.medicineMinMl} ml (odpowiednik ${result.medicineMinMg} mg" +
-                            " ${result.medicineName}u)" +
-                            "\nMożna podać ${result.medicineCount} takie dawki w ciągu doby." +
-                            "\nDobowa dawka: ${result.medicineDailyMinMl} ml (odpowiednik " +
-                            "${result.medicineDailyMinMg} mg ${result.medicineName}u)"
-                } else {
-                    "\nJednorazowa dawka: ${result.medicineMinMl}-${result.medicineMaxMl} ml (odpowiednik " +
-                            "${result.medicineMinMg}-${result.medicineMaxMg} mg ${result.medicineName}u)" +
-                            "\nMożna podać ${result.medicineCount} takie dawki w ciągu doby." +
-                            "\nDobowa dawka: ${result.medicineDailyMinMl}-${result.medicineDailyMaxMl} ml " +
-                            "(odpowiednik ${result.medicineDailyMinMg}-${result.medicineDailyMaxMg} mg " +
-                            "${result.medicineName}u)"
-                }
-                text_result.text = output
-            } */
-            //calculationsResult = result
-        })
 
         fab_calculate.setOnClickListener {
             handleEditTexFocusOnButtonClick(edit_text_substance, edit_text_medicine, edit_text_mass)
-            val lek = if (findViewById<RadioButton>(radio_group_medicine.checkedRadioButtonId) == radio_ibuprofen)
+            val lek = if (findViewById<Chip>(chip_group_medicines.checkedChipId) == chip_ibuprofen)
                 Ibuprofen() else Paracetamol()
 
             when {
@@ -110,7 +87,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        image_substance_help.setOnClickListener { infoHelpBottomSheetDialog.show() }
+        image_substance_help.setOnClickListener { helpSubstanceBottomSheetDialog.show() }
+        image_weight_help.setOnClickListener { helpWeightBottomSheetDialog.show() }
         aboutSheetView.text_app_based_on.setOnClickListener { openWebUrl("https://mamaistetoskop.pl/test") }
     }
 
@@ -152,10 +130,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun prepareBottomSheetDialogs() {
-        // Bottom sheet displayed after click on question mark image
-        infoHelpBottomSheetDialog = BottomSheetDialog(this)
-        val infoSheetView = layoutInflater.inflate(R.layout.bottom_sheet_dialog_info, null)
-        infoHelpBottomSheetDialog.setContentView(infoSheetView)
+        // Bottom sheet displayed after click on question mark image near substance input layout
+        helpSubstanceBottomSheetDialog = BottomSheetDialog(this)
+        val substanceSheetView = layoutInflater.inflate(R.layout.bottom_sheet_dialog_info, null)
+        helpSubstanceBottomSheetDialog.setContentView(substanceSheetView)
+        // Bottom sheet displayed after click on question mark image near weight input layout
+        helpWeightBottomSheetDialog = BottomSheetDialog(this)
+        val weightSheetView = layoutInflater.inflate(R.layout.bottom_sheet_dialog_info, null)
+        weightSheetView.text_info.text = getString(R.string.help_weight_info)
+        helpWeightBottomSheetDialog.setContentView(weightSheetView)
         // Bottom sheet with about app info
         aboutBottomSheet = BottomSheetDialog(this)
         aboutSheetView = layoutInflater.inflate(R.layout.bottom_sheet_about, null)

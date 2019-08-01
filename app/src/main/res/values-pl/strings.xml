@@ -18,7 +18,7 @@
             lekarskiej.
         </b>
     </string>
-    <string name="substance_concentration_help">Odczytaj z opakownia leku stężenie substancji aktywnej.
+    <string name="substance_concentration_help">Odczytaj z opakowania leku stężenie substancji aktywnej.
         \nNastępnie uzupełnij poniższe pola o informację ile miligramów substancji aktywnej znajduje się w podanej
         liczbie mililitrów syropu.\nNa przykład: 40 mg substancji na 1 ml syropu.
     </string>
@@ -51,4 +51,5 @@
     <string name="good_afternoon">Miłego popołudnia!</string>
     <string name="good_evening">Miłego wieczora!</string>
     <string name="good_day">Miłego dnia!</string>
+    <string name="help_weight_info">Wprowadź wagę ciała osoby, która ma przyjąć lek.</string>
 </resources>

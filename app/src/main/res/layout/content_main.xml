@@ -34,33 +34,49 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/text_welcome_greeting" android:layout_marginTop="16dp"/>
+                app:layout_constraintTop_toBottomOf="@+id/text_welcome_greeting"
+                android:layout_marginTop="16dp"/>
 
-        <RadioGroup
-                android:id="@+id/radio_group_medicine"
+        <HorizontalScrollView
+                android:id="@+id/chips_root"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
                 app:layout_constraintTop_toBottomOf="@id/textView7"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp">
 
-            <RadioButton
-                    android:id="@+id/radio_ibuprofen"
+            <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group_medicines"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/ibuprofen"/>
+                    android:layout_gravity="center"
+                    app:singleLine="true"
+                    app:singleSelection="true">
 
-            <RadioButton
-                    android:id="@+id/radio_paracetamol"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/paracetamol"/>
-        </RadioGroup>
+                <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_ibuprofen"
+                        style="@style/ChipChoice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/ibuprofen"/>
+
+                <com.google.android.material.chip.Chip
+                        android:id="@+id/chip_paracetamol"
+                        style="@style/ChipChoice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checkable="true"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/paracetamol"/>
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
 
         <TextView
                 android:id="@+id/textView8"
@@ -68,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/radio_group_medicine"
+                app:layout_constraintTop_toBottomOf="@+id/chips_root"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintEnd_toStartOf="@+id/image_substance_help"
