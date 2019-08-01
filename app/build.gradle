@@ -33,8 +33,14 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycle_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.lifecycle_version"
+    // Testing
     testImplementation "junit:junit:$rootProject.junit_version"
+    androidTestImplementation "androidx.test:core:$rootProject.test_core_version"
+    // AndroidJUnitRunner and JUnit Rules
     androidTestImplementation "androidx.test:runner:$rootProject.test_runner_version"
+    androidTestImplementation "androidx.test:rules:$rootProject.test_rules_version"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.test_ext_junit_version"
+    // Espresso
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espresso_version"
     testImplementation "com.google.truth:truth:1.0"
 }
