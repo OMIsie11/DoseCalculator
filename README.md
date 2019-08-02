@@ -2,7 +2,7 @@
 
 Small and simple app for calculating doses of medicines (Ibuprofen and Paracetamol). 
 
-App based on web calculator that You can find [here](https://mamaistetoskop.pl/test/), originally made by [Mateusz Woźniak](https://github.com/wozniakm).
+App based on web calculator that You can find [here](https://mamaistetoskop.pl/), originally made by [Mateusz Woźniak](https://github.com/wozniakm).
 
 **Application was designed for Polish users. So it will probably be usefull only for them**
 
