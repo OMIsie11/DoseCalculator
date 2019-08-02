@@ -30,8 +30,9 @@
     <string name="warning_informational">Wszystkie wyliczenia mają jedynie charakter informacyjny i nie stanowią porady
         lekarskiej.
     </string>
-    <string name="app_based_on">Aplikacja jest oparta na kalkulatorze znajdującym się na stronie:
-        <a href="https://mamaistetoskop.pl/test/">https://mamaistetoskop.pl</a>
+    <string name="app_based_on">Aplikacja oparta jest na kalkulatorze znajdującym się na stronie:
+        <a href="https://mamaistetoskop.pl/">https://mamaistetoskop.pl</a>, którego twórcą jest <a
+                href="https://github.com/wozniakm">Mateusz Woźniak</a>.
     </string>
 
     <!-- Calculations output -->
@@ -65,4 +66,11 @@
     <string name="good_day">Miłego dnia!</string>
     <string name="help_weight_info">Wprowadź wagę ciała osoby, która ma przyjąć lek.</string>
     <string name="calculate_doses">Oblicz dawki</string>
+
+    <!-- About bottom sheet -->
+    <string name="app_dev_info">Aplikację napisał Oskar Misiewicz
+        (OMIsie11), znajdź mnie na:
+    </string>
+    <string name="omisie11_website">Strona</string>
+
 </resources>

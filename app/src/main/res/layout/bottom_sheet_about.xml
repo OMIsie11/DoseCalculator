@@ -26,20 +26,19 @@
     <TextView
             android:id="@+id/textView2"
             android:text="@string/warning_informational"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:maxWidth="320dp"
             android:gravity="center"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
 
     <View
             android:id="@+id/divider2"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
+            android:background="@color/divider_color"
             android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"/>
@@ -55,7 +54,90 @@
             android:gravity="center"
             android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginEnd="16dp"/>
+
+    <HorizontalScrollView
+            android:id="@+id/horizontalScrollView_attribution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center">
+
+        <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+            <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_mamaistetoskop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mamaistetoskop_pl"/>
+
+            <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_m_wozniak_github"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mateusz_wozniak_github"/>
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_color"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+
+    <TextView
+            android:id="@+id/text_app_dev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/app_dev_info"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+    <HorizontalScrollView
+            android:id="@+id/horizontalScrollView_developer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp">
+
+        <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_developer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:singleLine="true">
+
+            <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_dev_github"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/github_omisie"/>
+
+            <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_dev_twitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/twitter"/>
+
+            <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_dev_website"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/omisie11_website"/>
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
 
 </LinearLayout>

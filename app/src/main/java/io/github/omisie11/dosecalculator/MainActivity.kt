@@ -1,14 +1,11 @@
 package io.github.omisie11.dosecalculator
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
-import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -18,7 +15,6 @@ import com.google.android.material.chip.Chip
 import io.github.omisie11.dosecalculator.model.Ibuprofen
 import io.github.omisie11.dosecalculator.model.Paracetamol
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.bottom_sheet_about.view.*
 import kotlinx.android.synthetic.main.bottom_sheet_dialog_info.view.*
 import kotlinx.android.synthetic.main.content_main.*
 import java.util.*
@@ -28,10 +24,9 @@ class MainActivity : AppCompatActivity() {
 
     private val sharedPrefs: SharedPreferences by lazy { PreferenceManager.getDefaultSharedPreferences(this) }
     private val resultBottomSheet by lazy { ResultBottomSheetFragment() }
+    private val aboutBottomSheet by lazy { AboutBottomSheetFragment() }
     private lateinit var helpSubstanceBottomSheetDialog: BottomSheetDialog
     private lateinit var helpWeightBottomSheetDialog: BottomSheetDialog
-    private lateinit var aboutSheetView: View
-    private lateinit var aboutBottomSheet: BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,7 +84,6 @@ class MainActivity : AppCompatActivity() {
 
         image_substance_help.setOnClickListener { helpSubstanceBottomSheetDialog.show() }
         image_weight_help.setOnClickListener { helpWeightBottomSheetDialog.show() }
-        aboutSheetView.text_app_based_on.setOnClickListener { openWebUrl("https://mamaistetoskop.pl/test") }
     }
 
     override fun onResume() {
@@ -104,7 +98,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.action_about -> {
-            aboutBottomSheet.show()
+            aboutBottomSheet.show(supportFragmentManager, "about_bottom_sheet")
             true
         }
         R.id.action_dark_mode -> {
@@ -139,10 +133,6 @@ class MainActivity : AppCompatActivity() {
         val weightSheetView = layoutInflater.inflate(R.layout.bottom_sheet_dialog_info, null)
         weightSheetView.text_info.text = getString(R.string.help_weight_info)
         helpWeightBottomSheetDialog.setContentView(weightSheetView)
-        // Bottom sheet with about app info
-        aboutBottomSheet = BottomSheetDialog(this)
-        aboutSheetView = layoutInflater.inflate(R.layout.bottom_sheet_about, null)
-        aboutBottomSheet.setContentView(aboutSheetView)
     }
 
     private fun handleEditTexFocusOnButtonClick(editText1: EditText, editText2: EditText, editText3: EditText) {
@@ -151,10 +141,6 @@ class MainActivity : AppCompatActivity() {
             editText2.hasFocus() -> editText2.clearFocus()
             editText3.hasFocus() -> editText3.clearFocus()
         }
-    }
-
-    private fun openWebUrl(urlAddress: String) {
-        if (urlAddress.isNotEmpty()) startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(urlAddress)))
     }
 
     // Return appropriate welcome String dependent of current hour
