@@ -34,6 +34,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="DoseCalcTheme.SplashScreen">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
     <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textAllCaps">true</item>
     </style>

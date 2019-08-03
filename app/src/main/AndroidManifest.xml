@@ -11,7 +11,8 @@
             android:supportsRtl="true"
             android:theme="@style/DoseCalcTheme.NoActionBar">
         <activity android:name="io.github.omisie11.dosecalculator.MainActivity"
-                  android:windowSoftInputMode="adjustPan|stateHidden">
+                  android:windowSoftInputMode="adjustPan|stateHidden"
+                  android:theme="@style/DoseCalcTheme.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

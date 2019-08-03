@@ -20,4 +20,6 @@
     <color name="chip_bg_checked">#0039CB</color>
     <color name="chip_text_unchecked">#000000</color>
     <color name="chip_text_checked">#0039CB</color>
+
+    <color name="splash_screen_bg">#121212</color>
 </resources>

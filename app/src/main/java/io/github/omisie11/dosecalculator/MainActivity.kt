@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var privacyBottomSheetDialog: BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.DoseCalcTheme_NoActionBar)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(bottom_app_bar)
