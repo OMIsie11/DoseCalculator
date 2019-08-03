@@ -93,7 +93,6 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"/>
 
-
     <TextView
             android:id="@+id/text_app_dev"
             android:layout_width="wrap_content"

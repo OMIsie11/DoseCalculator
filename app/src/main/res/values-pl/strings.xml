@@ -72,5 +72,8 @@
         (OMIsie11), znajdź mnie na:
     </string>
     <string name="omisie11_website">Strona</string>
-
+    <string name="user_privacy_info">Wszystkie dane gromadzone przez aplikację pozostają na Twoim urządzeniu i nigdy nie
+        są udostępniane ani wysyłane do programisty.\nSzanuję Twoją prywatność.
+    </string>
+    <string name="privacy">Prywatność</string>
 </resources>

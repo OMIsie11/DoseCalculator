@@ -27,11 +27,13 @@ class MainActivity : AppCompatActivity() {
     private val aboutBottomSheet by lazy { AboutBottomSheetFragment() }
     private lateinit var helpSubstanceBottomSheetDialog: BottomSheetDialog
     private lateinit var helpWeightBottomSheetDialog: BottomSheetDialog
+    private lateinit var privacyBottomSheetDialog: BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(bottom_app_bar)
+        bottom_app_bar.overflowIcon = getDrawable(R.drawable.ic_more_vert_24dp)
 
         // Set default selection on chip group
         chip_group_medicines.check(R.id.chip_ibuprofen)
@@ -120,6 +122,10 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+        R.id.action_privacy -> {
+            privacyBottomSheetDialog.show()
+            true
+        }
         else -> super.onOptionsItemSelected(item)
     }
 
@@ -133,6 +139,11 @@ class MainActivity : AppCompatActivity() {
         val weightSheetView = layoutInflater.inflate(R.layout.bottom_sheet_dialog_info, null)
         weightSheetView.text_info.text = getString(R.string.help_weight_info)
         helpWeightBottomSheetDialog.setContentView(weightSheetView)
+        // Bottom sheet displayed after click on app bar action - Privacy
+        privacyBottomSheetDialog = BottomSheetDialog(this)
+        val privacySheetView = layoutInflater.inflate(R.layout.bottom_sheet_dialog_info, null)
+        privacySheetView.text_info.text = getString(R.string.user_privacy_info)
+        privacyBottomSheetDialog.setContentView(privacySheetView)
     }
 
     private fun handleEditTexFocusOnButtonClick(editText1: EditText, editText2: EditText, editText3: EditText) {

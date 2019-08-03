@@ -77,4 +77,8 @@
     <string name="mamaistetoskop_pl" translatable="false">mamaistetoskop.pl</string>
     <string name="mateusz_wozniak_github" translatable="false">Mateusz Woźniak GitHub</string>
     <string name="url_mateusz_wozniak_github" translatable="false">https://github.com/wozniakm</string>
+    <string name="user_privacy_info">All data collected by application stay on Your device and is never shared or send
+        to developer.\nI respect Your privacy.
+    </string>
+    <string name="privacy">Privacy</string>
 </resources>
