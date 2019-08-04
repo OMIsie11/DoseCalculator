@@ -6,7 +6,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "io.github.omisie11.kalkulatordawek"
+        applicationId "io.github.omisie11.dosecalculator"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -15,7 +15,8 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
