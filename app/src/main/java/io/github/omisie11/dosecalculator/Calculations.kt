@@ -3,6 +3,7 @@ package io.github.omisie11.dosecalculator
 import io.github.omisie11.dosecalculator.model.CalculationsResult
 import io.github.omisie11.dosecalculator.model.Ibuprofen
 import io.github.omisie11.dosecalculator.model.Medicine
+import io.github.omisie11.dosecalculator.utils.roundToTwoDecimalPoints
 
 
 fun calculateDose(

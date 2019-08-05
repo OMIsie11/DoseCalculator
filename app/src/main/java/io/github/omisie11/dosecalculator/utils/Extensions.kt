@@ -1,4 +1,4 @@
-package io.github.omisie11.dosecalculator
+package io.github.omisie11.dosecalculator.utils
 
 import android.widget.EditText
 import java.math.BigDecimal

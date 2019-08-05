@@ -14,6 +14,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.chip.Chip
 import io.github.omisie11.dosecalculator.model.Ibuprofen
 import io.github.omisie11.dosecalculator.model.Paracetamol
+import io.github.omisie11.dosecalculator.utils.DoseTextWatcher
+import io.github.omisie11.dosecalculator.utils.MassTextWatcher
+import io.github.omisie11.dosecalculator.utils.validateNumericInput
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.bottom_sheet_dialog_info.view.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -48,8 +51,16 @@ class MainActivity : AppCompatActivity() {
 
         prepareBottomSheetDialogs()
 
-        edit_text_substance.addTextChangedListener(DoseTextWatcher(edit_text_substance))
-        edit_text_medicine.addTextChangedListener(DoseTextWatcher(edit_text_medicine))
+        edit_text_substance.addTextChangedListener(
+            DoseTextWatcher(
+                edit_text_substance
+            )
+        )
+        edit_text_medicine.addTextChangedListener(
+            DoseTextWatcher(
+                edit_text_medicine
+            )
+        )
         edit_text_mass.addTextChangedListener(MassTextWatcher(edit_text_mass))
 
         val viewModel = ViewModelProviders.of(this)[MainViewModel::class.java]
@@ -80,7 +91,10 @@ class MainActivity : AppCompatActivity() {
                         edit_text_medicine.text.toString().toDouble(),
                         edit_text_mass.text.toString().toDouble()
                     )
-                    resultBottomSheet.show(supportFragmentManager, "result_bottom_sheet")
+                    if (!resultBottomSheet.isVisible) resultBottomSheet.show(
+                        supportFragmentManager,
+                        "result_bottom_sheet"
+                    )
                 }
             }
         }
@@ -101,7 +115,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.action_about -> {
-            aboutBottomSheet.show(supportFragmentManager, "about_bottom_sheet")
+            if (!aboutBottomSheet.isVisible) aboutBottomSheet.show(supportFragmentManager, "about_bottom_sheet")
             true
         }
         R.id.action_dark_mode -> {

@@ -1,8 +1,9 @@
-package io.github.omisie11.dosecalculator
+package io.github.omisie11.dosecalculator.utils
 
 import android.text.TextWatcher
 import android.text.Editable
 import android.widget.EditText
+import io.github.omisie11.dosecalculator.R
 
 
 class DoseTextWatcher(private val editText: EditText) : TextWatcher {

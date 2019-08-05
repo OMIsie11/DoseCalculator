@@ -1,6 +1,7 @@
 package io.github.omisie11.dosecalculator
 
 import com.google.common.truth.Truth.assertThat
+import io.github.omisie11.dosecalculator.utils.roundToTwoDecimalPoints
 import org.junit.Test
 
 class NumbersRoundingTests {
